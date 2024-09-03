@@ -1,0 +1,106 @@
+body {
+  height: 100vh;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-image: url('../images/fondo\ 1\ libros.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: center; /* Centra horizontalmente */
+  align-items: flex-start; /* Alinea al inicio superior */
+}
+
+.cajaLogin {
+  padding: 60px;
+  box-sizing: border-box;
+  background-color: #F3F1E5;
+  width: 40%; /* Ocupa todo el ancho disponible */
+  height: auto; /* Ajusta la altura automáticamente */
+  max-width: 100%; /* Asegura que no haya límite de ancho */
+  border-radius: 0; /* Sin bordes redondeados */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute; /* Posición absoluta para poder posicionar respecto a los bordes */
+  top: 0; /* Pegado al borde superior */
+  left: 0; /* Pegado al borde izquierdo */
+  bottom: 0;
+
+}
+
+h1 {
+  margin: 0 0 20px 0;
+  text-align: center;
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: 400;
+  font-size: 50px;
+  color: #D4A373;
+  font-style: italic;
+}
+
+h3, p {
+  font-size: 16px; /* Tamaño de fuente ligeramente mayor para mejor legibilidad */
+}
+
+.cajaInput {
+  position: relative;
+  width: 100%;
+  margin: 15px 0;
+  
+}
+
+.cajaInput ion-icon {
+  position: absolute;
+  left: 10px;
+  top: 0%;
+  transform: translateY(-50%);
+  color: red;
+}
+
+input[type="email"], input[type="password"] {
+  background-color: #ffff;
+  width: 100%;
+  padding: 12px 10px 12px 40px; /* Ajuste del padding */
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+
+.contraseñaOlvidada {
+  display: flex;
+  justify-content: flex-end;
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+
+.contraseñaOlvidada a {
+  color: #D4A373;
+  text-decoration: none;
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  background-color: #795204;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: background-color 0.2s ease-in-out;
+}
+
+button:hover {
+  background-color: #3B3B58;
+}
+
+.sinCuenta {
+  text-align: center;
+  font-size: 14px;
+  margin-top: 15px;
+}
+
+.sinCuenta a {
+  text-decoration: none;
+  color: rgb(102, 102, 222);
+}
