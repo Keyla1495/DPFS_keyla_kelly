@@ -1,14 +1,16 @@
-body {
-    height: 100vh;
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background-image: url('../images/fondo\ 1\ libros.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    display: flex;
-    justify-content: center; /* Centra horizontalmente */
-    align-items: flex-start; /* Alinea al inicio superior */
-  }
+@import '/style/register.css';
+
+.bg-register {
+  height: 100vh;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-image: url('../images/fondo 1 libros.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: center; /* Centra horizontalmente */
+  align-items: flex-start; /* Alinea al inicio superior */
+}
   
   .cajaRegister {
     padding: 60px;
@@ -57,7 +59,7 @@ body {
     color: red;
   }
   
-  input[type="email"], input[type="password"] {
+  input[type="text"],input[type="email"], input[type="password"] {
     background-color: #ffff;
     width: 100%;
     padding: 12px 10px 12px 40px; /* Ajuste del padding */

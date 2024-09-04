@@ -11,13 +11,47 @@ const ProductCart = () => {
       <Head />
 
       <Header />
-      <body>
-
+     
         <main>
           <section className="cart">
             <h2>Tu Carrito de Compras</h2>
             <div className="cart-items">
-              {/* Ejemplo de producto en el carrito */}
+              <div className="cart-item">
+                <img
+                  src="../public/images/Libro The Great Gatsby.jpg"
+                  alt="The Great Gatsby"
+                />
+                <div className="item-details">
+                  <h3>The Great Gatsby</h3>
+                  <p>Precio: $10.99</p>
+                  <p>Cantidad: 1</p>
+                  <button className="remove-item">Eliminar</button>
+                </div>
+              </div>
+              <div className="cart-item">
+                <img
+                  src="../public/images/Libro The Great Gatsby.jpg"
+                  alt="The Great Gatsby"
+                />
+                <div className="item-details">
+                  <h3>The Great Gatsby</h3>
+                  <p>Precio: $10.99</p>
+                  <p>Cantidad: 1</p>
+                  <button className="remove-item">Eliminar</button>
+                </div>
+              </div>
+              <div className="cart-item">
+                <img
+                  src="../public/images/Libro The Great Gatsby.jpg"
+                  alt="The Great Gatsby"
+                />
+                <div className="item-details">
+                  <h3>The Great Gatsby</h3>
+                  <p>Precio: $10.99</p>
+                  <p>Cantidad: 1</p>
+                  <button className="remove-item">Eliminar</button>
+                </div>
+              </div>
               <div className="cart-item">
                 <img
                   src="../public/images/Libro The Great Gatsby.jpg"
@@ -41,7 +75,7 @@ const ProductCart = () => {
 
         <Footer />
 
-      </body>
+     
     </>
   );
 };
