@@ -1,0 +1,16 @@
+<h1 align='center'>Retrospectiva</h1>
+
+En mi proyecto "Fantasy World", he logrado avances significativos tanto en diseño como en desarrollo. Desde el principio, me he centrado en crear una tienda online atractiva y funcional, ajustando el diseño visual, incluyendo banners, headers, y la disposición de imágenes e información en la página.
+
+## Lo que ha ido bien:
+
+1. Adaptación a Nuevas Tecnologías: He migrado con éxito de HTML puro a un stack más moderno con React y Vite para el frontend, lo que me ha permitido crear componentes más dinámicos y reutilizables.
+2. Organización del Código: La separación de vistas y componentes, tanto en el frontend como en el backend con Express y EJS, ha mejorado la estructura y mantenibilidad del proyecto.
+3. Diseño Estético: Me he esforzado en perfeccionar los detalles visuales, como el estilo del header, footer, y la presentación del formulario de login. Esto ha dado como resultado una interfaz de usuario más pulida y profesional.
+4. Funcionalidades Clave: He implementado características esenciales como el carrito de compras y el manejo de usuarios, incluyendo formularios de login y registro.
+
+## Lo que podría mejorarse:
+
+1. Manejo de Errores: Enfrenté desafíos con errores de módulos en Node.js, lo que retrasó temporalmente el desarrollo. Mejorar la comprensión y solución de estos problemas me ayudará a prevenir futuros obstáculos.
+2. Diseño Responsivo: Aunque he trabajado en las media queries para dispositivos móviles, el diseño sigue necesitando ajustes para verse perfecto en todas las resoluciones.
+3. Optimización del Carrusel: Estoy trabajando en un carrusel de imágenes, pero he identificado la necesidad de ajustar el tamaño y la presentación de las imágenes para un mejor rendimiento y estética.
