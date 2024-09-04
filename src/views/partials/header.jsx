@@ -29,7 +29,7 @@ const Header = () => {
         </div>
         <div className="iconos">
           <div className="carrito" id="cartIcon">
-            <i className="fa-solid fa-cart-shopping"></i>
+          <a href="/carritodecompras"><i className="fa-solid fa-cart-shopping"></i></a>
             <span className="cart-count" id="cartCount">0</span>
             </div>
             <div className="usuario"><a href="/login"><i className="fa-solid fa-user"></i></a></div>

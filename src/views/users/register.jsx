@@ -1,9 +1,11 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import '../../../public/style/register.css';
 
 function Register() {
   return (
-    <div className="cajaRegister">
+    <div className='bg-register'>
+      <div className="cajaRegister">
       <form action="">
         <h1>Fantasy World</h1>
         <h3>Bienvenido a Fantasy World</h3>
@@ -24,12 +26,13 @@ function Register() {
           <input type="password" placeholder="Ingresa tu contraseña" required />
         </div>
 
-        <button type="submit" className="boton">REGISTRATE</button>
+        <button type="submit" className="boton">REGÍSTRATE</button>
 
         <p className="cuentaExistente">
-          ¿Ya tienes una cuenta? <a href="./login.html">Ingresa aquí</a>
+          ¿Ya tienes una cuenta? <Link to="/login">Ingresa aquí</Link>
         </p>
-      </form>
+        </form>
+      </div>
     </div>
   );
 }
