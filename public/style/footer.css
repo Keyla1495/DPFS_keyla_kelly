@@ -1,0 +1,10 @@
+@import '/style/footer.css';
+footer {
+  background-color: #3B3B58;
+  color: #FFFFFF;
+
+  padding: 20px;
+  width: 100%;
+ 
+  
+}

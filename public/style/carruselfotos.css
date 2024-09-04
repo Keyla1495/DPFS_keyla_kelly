@@ -1,0 +1,83 @@
+/* Título del carrusel */
+.Carrusel h2 {
+    font-size: 1rem; /* Ajusta el tamaño de la fuente según sea necesario */
+    line-height: 38px;
+    padding-bottom: 24px;
+    opacity: 0.9;
+    text-transform: uppercase;
+    letter-spacing: 10px;
+    text-align: center;
+}
+
+/* Contenedor del carrusel */
+.slick-list {
+    position: relative; /* Cambié a relative para evitar problemas de posicionamiento */
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 10px;
+    margin: 0 auto;
+    max-width: 100%; /* Aumenté el max-width para darle más espacio */
+    overflow: hidden;
+}
+
+/* Pista de deslizamiento */
+.slick-track {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.5s ease-in-out;
+}
+
+/* Estilo para cada diapositiva */
+.slick-slide {
+    display: flex;
+    justify-content: center;
+    width: auto; /* Ajusté el ancho para que sea automático */
+}
+
+/* Estilo de las imágenes */
+.slick img a {
+    max-width: 10%; /* Mantén la altura máxima de las imágenes */
+    height: auto; /* Asegura que la altura se ajuste automáticamente */
+    border-radius: 4px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.5);
+    transition: 0.2s ease-in-out;
+}
+
+.slick img:hover {
+    opacity: 0.85;
+}
+
+/* Botones de navegación */
+.slick-arrow {
+    border-radius: 30px;
+    background-color: #521010;
+    position: absolute;
+    z-index: 4;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.15);
+    border: 0;
+    cursor: pointer;
+}
+
+.slick-arrow:focus {
+    outline: 0;
+}
+
+.slick-arrow svg {
+    width: 20px;
+    height: 20px;
+    color: rgba(0, 0, 0, 0.7);
+}
+
+/* Posicionamiento de los botones */
+.slick-prev {
+    left: 10px;
+}
+
+.slick-next {
+    right: 10px;
+}
