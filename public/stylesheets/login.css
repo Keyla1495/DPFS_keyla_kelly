@@ -1,0 +1,111 @@
+body {
+  height: 100vh;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-image: url('../images/fondo\ 1\ libros.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+}
+
+.cajaLogin {
+  padding: 50px;
+  box-sizing: border-box;
+  background-color: white;
+  width: 40%; /* Puedes ajustar el ancho según sea necesario */
+  height: 100%; /* Para ocupar toda la altura del contenedor */
+  display: flex;
+  justify-content: center; /* Centra verticalmente el contenido dentro de la caja */
+  align-items: center; /* Alinea el contenido al inicio (izquierda) */
+  background-color: #F3F1E5;
+}
+
+h1 {
+  margin: 30px;
+  text-align: center; /* Centra el texto dentro del h1 */
+  width: 100%; /* Asegura que el h1 ocupe todo el ancho disponible */
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 50px;
+  font-style: italic; 
+  color: #D4A373;
+  text-decoration: none;  
+  margin-left: 15px;
+}
+
+h3, p {
+  font-size: 14px;
+}
+
+.cajaInput {
+  position: relative;
+  width: 100%;
+  margin: 10px 0;
+}
+
+.cajaInput ion-icon {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #ccc;
+}
+
+input[type="email"], input[type="password"] {
+  width: 100%;
+  padding: 10px 10px 10px 40px; /* Ajusta el padding izquierdo para dar espacio al icono */
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+
+.contraseñaOlvidada{
+  display: flex;
+  justify-content: flex-end;
+  font-size: 12px;
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+}
+
+.contraseñaOlvidada a{
+  color: #D4A373;
+  text-decoration: none;
+}
+
+button {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  background-color: #795204;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: ease-in-out;
+  transition-duration: 0.2s;
+}
+
+
+button a {
+ text-decoration: none; 
+  color: white;
+}
+
+button:hover {
+  background-color: #3B3B58;
+}
+
+.sinCuenta{
+  text-align: center;
+  font-size: 12px;
+  margin-top: 15px;
+}
+
+.sinCuenta a {
+  text-decoration: none;
+  color:rgb(102, 102, 222);
+}
