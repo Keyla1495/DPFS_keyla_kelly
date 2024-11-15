@@ -23,7 +23,7 @@ La librería Fantasy World está dirigida a una amplia gama de lectores interesa
 
 
 ## Conóceme 
-Hola soy Keyla!!, tengo 28 años de edad soy una persona amigable, organizada, práctica, responsable y muy curiosa en base a lo relacionado con las nuevas tendencias tecnológicas. Me gusta todo lo relacionado con la distribucción logística de la compra y venta de productos o servicios online.
+Hola soy Keyla!!, tengo 29 años de edad soy una persona amigable, organizada, práctica, responsable y muy curiosa en base a lo relacionado con las nuevas tendencias tecnológicas. Me gusta todo lo relacionado con la distribucción logística de la compra y venta de productos o servicios online.
 
 
 ## Referencias
