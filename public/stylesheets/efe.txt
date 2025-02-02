@@ -1,0 +1,48 @@
+/* Consultas de medios para dispositivos pequeños */
+@media (max-width: 1024px) {
+  .slick {
+    width: 220px; /* Disminuye el ancho de las imágenes para pantallas medianas */
+  }
+
+  .slick a img {
+    height: 250px; /* Ajusta la altura de las imágenes */
+  }
+
+  .slick-list {
+    height: auto; /* Ajusta el tamaño del contenedor */
+  }
+}
+
+@media (max-width: 768px) {
+  .slick {
+    width: 100%; /* En pantallas más pequeñas, las imágenes ocuparán el 100% del ancho */
+    padding: 0 10px; /* Reduce el padding */
+  }
+
+  .slick a img {
+    height: 200px; /* Ajusta aún más la altura para pantallas pequeñas */
+  }
+
+  .slick-list {
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .slick {
+    width: 100%; /* Ocupa todo el ancho */
+  }
+
+  .slick a img {
+    height: 180px; /* Reduce la altura aún más para pantallas pequeñas */
+  }
+
+  .slick-list {
+    padding: 5px;
+  }
+
+  .slick-arrow {
+    width: 40px; /* Ajusta el tamaño de los botones en pantallas pequeñas */
+    height: 40px;
+  }
+}

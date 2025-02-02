@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../public/stylesheets/login.css">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+  <title>Bienvenido a Fantasy World</title>
+</head>
+<body>
+  <div class="cajaLogin">
+    <form id="loginForm">
+      <h1>Fantasy World</h1>
+      <h3>Bienvenido a Fantasy World</h3>
+      <p>Usa tu dirección de email para acceder</p>
+
+      <!-- Campo de email -->
+      <div class="cajaInput">
+        <ion-icon name="mail-outline"></ion-icon>
+        <input type="email" id="email" placeholder="Usuario" required>
+      </div>
+
+      <!-- Campo de contraseña -->
+      <div class="cajaInput">
+        <ion-icon name="lock-closed-outline"></ion-icon>
+        <input type="password" id="password" placeholder="Contraseña" required>
+      </div>
+
+      <!-- Botón de enviar -->
+      <button type="submit" class="boton">ACCEDER</button>
+      
+      <!-- Enlaces adicionales -->
+      <p class="contraseñaOlvidada"><a href="/password-reset">¿Has olvidado tu contraseña?</a></p>
+      <p class="sinCuenta">¿No tienes una cuenta? <a href="register.html">Regístrate aquí</a></p>
+      <p id="warnings" class="warnings"></p>
+    </form>
+  </div>
+  <script src="../public/javascripts/login.js"></script>
+</body>
+</html>

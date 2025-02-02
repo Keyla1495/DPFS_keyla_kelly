@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../public/stylesheets/register.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <title>Regístrate en Fantasy World</title>
+</head>
+<body>
+    <div class="cajaLogin">
+        <form id="formulario" action="/registro" method="POST" novalidate>
+            <h1>Fantasy World</h1>
+            <h3>Bienvenido a Fantasy World</h3>
+            <p>Únete a la aventura, regístrate ahora</p>
+
+            <!-- Caja de Nombre -->
+            <div class="cajaInput">
+                <ion-icon name="person-outline"></ion-icon>
+                <input type="text" id="nombre" placeholder="Ingresa tu Nombre Completo" name="nombre" required aria-label="Nombre completo">
+            </div>
+
+            <!-- Caja de Email -->
+            <div class="cajaInput">
+                <ion-icon name="mail-outline"></ion-icon>
+                <input type="email" id="email" placeholder="Ingresa tu email" name="email" required aria-label="Correo electrónico">
+            </div>
+
+            <!-- Caja de Contraseña -->
+            <div class="cajaInput">
+                <ion-icon name="lock-closed-outline"></ion-icon>
+                <input type="password" id="password" placeholder="Ingresa tu contraseña" name="contraseña" minlength="8" aria-label="Contraseña" required>
+            </div>
+
+            <!-- Botón de Registro -->
+            <button type="submit" class="boton">REGÍSTRATE</button>
+
+            <!-- Advertencias -->
+            <p class="warnings" id="warnings"></p>
+
+            <!-- Enlace a Login -->
+            <p class="cuentaExistente">¿Ya tienes una cuenta? <a href="./login.html">Ingresa aquí</a></p>
+        </form>
+    </div>
+    <script src="../public/javascripts/register.js"></script>
+</body>
+</html>
+

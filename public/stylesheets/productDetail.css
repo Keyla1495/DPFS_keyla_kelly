@@ -1,0 +1,182 @@
+/* Teléfonos móviles (diseño principal) */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
+  background-color: #F3F1E5;
+  color: #2E2E2E;
+  box-sizing: border-box;
+}
+
+/* Header */
+header {
+  background-color: #3B3B58;
+  color: #FFFFFF;
+  padding: 10px 0px;
+  text-align: center;
+}
+
+header .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Logo */
+.logo h1 a {
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: 400;
+  font-size: 40px;
+  font-style: italic;
+  color: #D4A373;
+  text-decoration: none;
+}
+
+/* Menú */
+.menu {
+  display: none;
+  width: 100%;
+}
+
+.menu.active{
+  display: flex; 
+  width: 100%; /* Ocupa todo el ancho disponible */
+  max-width: 400px; /* Limita el ancho */
+  padding: 0px 0px 10px 0px; /* Espaciado interno */
+ 
+}
+
+.menu-toggle {
+  display: flex; /* Muestra el ícono de hamburguesa en pantallas pequeñas */
+  flex-direction: column;
+  cursor: pointer;
+  margin: 10px 0px 2px 0px;
+}
+
+.menu-toggle .bar {
+  /*Modificaciones para el icono de hamburgues*/
+  width: 25px; 
+  height: 3px;
+  background-color: #FFFFFF;
+  margin: 3px 0;
+}
+
+.menu ul {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  padding: 0;
+}
+
+.menu ul li {
+  text-align: center;
+  width: 100%;
+}
+
+.menu ul li a {
+  /* Diseño para efecto de navegacion */
+  color: #FFFFFF;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding: 10px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.menu ul li a:hover {
+  background-color: #D4A373;
+  color: #3B3B58;
+  border-radius: 5px;
+}
+
+/* Buscador */
+.buscador {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.buscador input {
+  width: 200px;
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid #D4A373;
+  outline: none;
+}
+
+.buscador i {
+  position: absolute;
+  color: #3B3B58; 
+  right: 10px; /* Ajusta la posición a la derecha */
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.buscador input {
+  /* Efecto del buscador */
+  width: 250px;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #D4A373;
+  outline: none;
+  transition: width 0.4s;
+}
+
+.buscador input:focus{
+ width: 400px;
+}
+
+/* Íconos */
+.iconos {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.iconos .carrito, .iconos .usuario {
+  background-color: #D4A373;
+  padding: 8px;
+  border-radius: 5px;
+  color: #3B3B58;
+}
+
+.iconos .carrito:hover, .iconos .usuario:hover {
+  background-color: #3B3B58;
+  color: #FFFFFF;
+}
+
+
+/*---------------------  */
+
+/* MAIN */
+
+.detalleProducto{
+  display: flex;
+  text-align: justify;
+  margin: 5px;
+  padding: 10px;
+
+}
+
+.imagenDetalle img{
+  width: 100%;
+  padding: auto;  
+}
+
+.infoProducto{
+  margin-left: 12px;
+  padding-left: 5px;
+}
+
+
+
+/* Imágenes */
+img {
+  width: 22px;
+}

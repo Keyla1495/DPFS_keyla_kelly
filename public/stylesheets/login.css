@@ -1,0 +1,133 @@
+/* General */
+body {
+  height: 100vh;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-image: url('../images/fondo 1 libros.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 1;
+  transition: opacity 1s ease-in-out;
+}
+
+/* Estilo para la caja del login */
+.cajaLogin {
+  padding: 30px;
+  box-sizing: border-box;
+  background-color: #F3F1E5;
+  width: 90%;
+  max-width: 400px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+/* Títulos */
+h1 {
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: 400;
+  font-size: 50px;
+  font-style: italic; 
+  color: #D4A373;
+  margin: 0 0 10px; /* Ajusta los márgenes */
+}
+
+h3 {
+  font-size: 18px;
+  margin: 0 0 10px;
+  color: #333;
+}
+
+p {
+  font-size: 14px;
+  color: #555;
+  margin: 0 0 20px;
+}
+
+/* Campos de entrada */
+.cajaInput {
+  position: relative;
+  width: 100%;
+  margin: 15px 0;
+}
+
+.cajaInput ion-icon {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #795204;
+}
+
+input[type="email"], input[type="password"] {
+  width: 100%;
+  padding: 10px 10px 10px 40px; /* Espacio para el ícono */
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-style: italic;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+input[type="email"]:focus,
+input[type="password"]:focus {
+  border-color: #D4A373;
+  outline: none;
+}
+
+/* Botón de enviar */
+button {
+  width: 100%;
+  padding: 12px;
+  background-color: #795204;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+button:hover {
+  background-color: #3B3B58;
+}
+
+/* Enlaces */
+.contraseñaOlvidada,
+.sinCuenta {
+  margin-top: 10px;
+  font-size: 12px;
+}
+
+.contraseñaOlvidada a,
+.sinCuenta a {
+  color: #D4A373;
+  text-decoration: none;
+}
+
+.contraseñaOlvidada a:hover,
+.sinCuenta a:hover {
+  text-decoration: underline;
+}
+
+/* Advertencias */
+.warnings {
+  color: red;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .cajaLogin {
+    width: 90%;
+    padding: 30px;
+  }
+
+  h1 {
+    font-size: 40px;
+  }
+}
