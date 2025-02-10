@@ -1,536 +1,540 @@
+/* Estilo Global */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
+  background-color: #F3F1E5;
+  color: #2E2E2E;
+  box-sizing: border-box; /* Asegura que el padding y border no afecten el ancho total */
+}
 
-  /* Media Queries */
-  @media (max-width: 1024px) {
-    .logo h1 a {
-      font-size: 30px; /* Ajusta el tamaño del logo */
-    }
+/* Header */
+header {
+  background-color: #3B3B58;
+  color: #FFFFFF;
+}
   
-    .menu ul li a {
-      font-size: 13px; /* Ajusta el tamaño del texto del menú */
-    }
-  
-    .detalleProducto {
-      flex-direction: column; /* Cambia a diseño en columna */
-      gap: 15px;
-    }
-  
-    .imagenDetalle img {
-      max-width: 300px; /* Reduce el tamaño de la imagen */
-    }
-  
-    .infoProducto {
-      max-width: 100%; /* Asegura que el texto use todo el ancho disponible */
-    }
-  
-    .buscador input {
-      width: 200px; /* Reduce el ancho del input */
-    }
-  
-    .buscador input:focus {
-      width: 250px; /* Ajusta el tamaño en foco */
-    }
-  
-    .slick {
-      width: 220px; /* Disminuye el ancho de las imágenes para pantallas medianas */
-    }
-  
-    .slick a img {
-      height: 250px; /* Ajusta la altura de las imágenes */
-    }
-  
-    .slick-list {
-      height: auto; /* Ajusta el tamaño del contenedor */
-    }
-  
-    .slick {
-      width: 220px; /* Ajusta el ancho de las imágenes */
-    }
-  
-    .slick-track {
-      display: flex;
-      justify-content: space-between; /* Asegura que las imágenes estén separadas */
-    }
+header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  flex-wrap: wrap;
+}
     
-    .slick-prev, .slick-next {
-      /* Cambiar el tamaño de los botones de navegación si es necesario */
-      width: 40px;
-      height: 40px;
-    }
-  
-    
-  }
-  
-  @media (max-width: 768px) {
-    header .container {
-      flex-direction: column;
-      align-items: center; /* Centra todos los elementos en el contenedor */
-    }
-    
-    .menu {
-      display: none; /* Oculta el menú dividido en pantallas pequeñas */
-    }
-  
-    .menu ul {
-      display: flex;
-      flex-direction: column; /* Cambia a disposición vertical */
-      align-items: center; /* Centra horizontalmente */
-      justify-content: center; /* Centra verticalmente si es necesario */
-      margin: 0;
-      padding: 0;
-      gap: 10px; /* Espacio entre elementos del menú */
-    }
-  
-    .menu ul li {
-      width: 100%; /* Asegura que los elementos ocupen todo el ancho disponible */
-      text-align: center; /* Centra el texto dentro del elemento */
-    }
-  
-    .menu ul li a {
-      display: block;
-      padding: 10px 0; /* Ajusta el espaciado interno */
-      font-size: 14px;
-      font-weight: bold;
-      text-transform: uppercase;
-      color: #FFFFFF;
-      text-decoration: none;
-      transition: background-color 0.3s ease;
-    }
-  
-    .menu ul li a:hover {
-      background-color: #D4A373;
-      color: #3B3B58;
-    }
-  
-    .menu.active {
-      display: flex;
-      top: 60px; /* Ajusta según la posición del header */
-      width: 100%; /* El menú ocupa todo el ancho */
-    }
-  
-  
-    .menu-toggle {
-      display: flex; /* Muestra el ícono de hamburguesa en pantallas pequeñas */
-      flex-direction: column;
-      cursor: pointer;
-      margin: 10px 0;
-    }
-  
-    .menu-toggle .bar {
-      width: 25px;
-      height: 3px;
-      background-color: #FFFFFF;
-      margin: 3px 0;
-    }
-    .logo h1 a {
-      text-align: center;
-    }
-  
-    .buscador {
-      width: 100%;
-      margin: 10px 0;
-    }
-  
-    .buscador input {
-      width: 100%;
-    }
-  
-    .iconos {
-      display: flex;
-      justify-content: center; /* Centra los iconos horizontalmente */
-      gap: 15px; /* Espacio entre iconos */
-      margin-top: 10px;
-    }
-  
-    .imagenDetalle img {
-      max-width: 100%; /* Imagenes ocupan todo el ancho */
-      
-    }
-  
-    .recomendados h2 {
-      font-size: 20px; /* Reduce el tamaño del título */
-    }
-  
-  
-  }
-  
-  @media (max-width: 480px) {
-    .menu ul li a {
-      font-size: 12px; /* Texto más pequeño para pantallas pequeñas */
-    }
-  
-    .buscador input {
-      width: 150px; /* Reduce aún más el ancho del input */
-    }
-  
-    .contador-btn {
-      font-size: 14px; /* Botones más pequeños */
-      padding: 5px 8px;
-    }
-  
-    .añadirAlCarrito {
-      font-size: 14px; /* Texto del botón más pequeño */
-      padding: 10px 20px;
-    }
-  
-    .recomendados h2 {
-      font-size: 18px; /* Reduce aún más el tamaño del título */
-    }
-  
-  }
-  
-  
-  
-  /* Ultimo copiado */
-  /* Estilo Global */
-  body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Arial', sans-serif;
-    background-color: #F3F1E5;
-    color: #2E2E2E;
-  }
-  
-  /* Header */
-  header {
-    background-color: #3B3B58;
-    color: #FFFFFF;
-  }
-    
-  header .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-    flex-wrap: wrap;
-  }
-      
-  .logo h1 a {
-    font-family: "Bebas Neue", sans-serif;
-    font-weight: 400;
-    /* font-size: 36px;  */
-    color: #D4A373;
-    text-decoration: none;  
-    /* margin-left: 15px; */
-    flex: 1;
-    text-align: center; /* Centra el texto en pantallas pequeñas */
-  }
-    
-  .menu {
-    display: flex;
-    align-items: center;
-  }
-  
-  .menu ul {
-    list-style: none;
-    display: flex;
-    margin: 0;
-    padding: 0;
-  }
-    
-  .menu ul li {
-    margin: 0 20px;
-  }
-    
-  .menu ul li a {
-    color: #FFFFFF;
-    text-decoration: none;
-    font-size: 15px;
-    font-weight: bold;
-    text-transform: uppercase;
-    padding: 8px 15px;
-    transition: background-color 0.3s, color 0.3s;
-  }
-  
-  .menu ul li a:hover {
-    background-color: #D4A373;
-    color: #3B3B58;
-    border-radius: 5px;
-  }
-  
-  .menu.active {
-      display: none;
-      flex-direction: column; /* Asegura que los elementos estén en columna */
-      align-items: flex-start; /* Alinea los elementos al inicio horizontalmente */
-      position: absolute; /* Posiciona el menú relativo a su contenedor */
-      top: 60px; /* Distancia desde la parte superior */
-      right: 0; /* Sin margen inicial para pantallas más grandes */
-      background-color: #3B3B58; /* Fondo oscuro */
-      width: 100%; /* Ocupa todo el ancho disponible */
-      max-width: 250px; /* Limita el ancho */
-      border-radius: 8px; /* Bordes suaves */
-      z-index: 1000; /* Mantén el menú en la parte superior */
-      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Efecto flotante */
-      padding: 10px; /* Espaciado interno */
-      overflow: hidden; /* Evita contenido desbordado */
-  }
-  
-  .buscador {
-    display: flex;
-    align-items: center;
-    position: relative;
-  }
-    
-  .buscador input {
-    width: 250px;
-    padding: 10px;
-    border-radius: 10px;
-    border: 1px solid #D4A373;
-    outline: none;
-    transition: width 0.4s;
-  }
-  
-  .buscador input:focus {
-    width: 300px;
-  }
-  
-  .buscador i {
-    position: absolute;
-    right: 10px;
-    color: #3B3B58;
-  }
-  
-  .iconos {
-    display: flex;
-    align-items: center;
-  }
-  
-  .iconos .carrito, .iconos .usuario {
-    background-color: #D4A373;
-    padding: 10px;
-    margin-left: 15px;
-    border-radius: 5px;
-    color: #3B3B58;
-  }
-  
-  .iconos .carrito:hover, .iconos .usuario:hover {
-    background-color: #3B3B58;
-    color: #FFFFFF;
-  }
-  
-  /* Main */
-  main {
-    margin: 15px;
-  }
-  
-  /* Detalle del Producto */
-  
-  .detalleProducto {
-    display: flex;
-    margin: 30px;
-    padding: 30px ;
-  }
-  
-  .imagenDetalle {
-    flex: 1;
-    padding: 15px;
-    
-  }
-  
-  .imagenDetalle img {
-    max-width: 400px;
-    height: auto;
-    border-radius: 8px;
-    background-color: #3B3B58;
-  }
-  
-  .infoProducto {
-    flex: 2;
-    max-width: 500px;
-     
-  }
-  
-  .infoProducto .titulo {
-    font-size: 28px;
-    font-weight: 700;
-    margin: 0;
-  }
-  
-  .infoProducto .subtitulo {
-    font-size: 22px;
-    color: #D4A373;
-    margin: 5px 0;
-  }
-  
-  .infoProducto .disponibles,
-  .infoProducto .precio {
-    font-size: 20px;
-    margin: 10px 0;
-  }
-  
-  .contador {
-    display: flex;
-    align-items: center;
-    margin: 10px 0;
-  }
-  
-  .contador-btn {
-    background-color: #D4A373;
-    color: #3B3B58;
-    border: none;
-    padding: 5px 10px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 18px;
-    margin: 0 5px;
-    transition: background-color 0.3s;
-  }
-  
-  .contador-btn:hover {
-    background-color: #3B3B58;
-    color: #FFFFFF;
-  }
-  
-  .contador-cantidad {
-    font-size: 20px;
-    margin: 0 10px;
-  }
-  
-  .añadirAlCarrito {
-    background-color: #795204;
-    color: white;
-    border: none;
-    padding: 12px 25px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 18px;
-    transition: background-color 0.3s;
-  }
-  
-  .añadirAlCarrito:hover {
-    background-color: #3B3B58;
-  }
-  
-  .descripcionProducto {
-    margin-top: 20px;
-  }
-  
-  .descripcionProducto h2 {
-    font-size: 26px;
-    margin-bottom: 15px;
-  }
-  
-  .descripcionProducto p {
-    text-align: justify;
-    font-size: 18px;
-    line-height: 1.6;
-    color: #333;
-  }
-  
-  /* Recomendados */
-  .recomendados {
-    margin-top: 40px;
-    text-align: center;
-    padding: 15px;
-  
-  }
-  
-  .recomendados h2 {
-    font-size: 24px;
-    margin-bottom: 20px;
-  }
-  
-  .Carrusel{
-    width: 100%;
-    padding: 25px 0px; /* tamaño del contenedor*/
-    background-color: #D4A373;
-    overflow: hidden;
-  }
-  
-  .Carrusel h2{
-    font-size: 26px;
-    padding-bottom: 4px;
-    opacity: 0.9;
-    text-transform: uppercase;
-    letter-spacing: 10px;
-    text-align: center;
-  }
-  
-  /* images */
-  
-  .slick-list{
-    position: relative;
-    display: flex;
-    align-items: center;
-    width: fit-content;
-    height: 304px;
-    padding: 10px 0px;
-    margin: 0px auto;
-    max-width: 90vw;
-    
-  }
-  .slick-track{
-      position: relative;
-      top: 0;
-      left: 0;
-      display: flex;
-      justify-content: center;
-      transition: .5s ease-in-out;
-  }
-  .slick{
-    position: relative;
-    width: 275px;
-    padding: 0 18px;
-    float: left;
-    box-sizing: border-box;
-    display: flex;
-    height: 100%;
-  }
-  
-  .slick a img{
-    object-fit: cover;
-    height: 300px;
-    width: 100%;
-    margin-left: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px 0 rgba(0,0,0,.5);
-    transition: .3s ease-in-out;
-    
-  }
-  .slick a img:hover{
-    opacity: .85;
-  }
-  
-  /* buttons */
-  
-  .slick-arrow{
-  border-radius: 30px;
-  background-color: #fff;
+.logo h1 a {
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: 400;
+  font-size: 36px; 
+  color: #D4A373;
+  text-decoration: none;  
+  margin-left: 15px;
+  flex: 1;
+  text-align: center; /* Centra el texto en pantallas pequeñas */
+}
+  
+.menu {
+  display: flex;
+  align-items: center;
+}
+
+.menu ul {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+  
+.menu ul li {
+  margin: 0 20px;
+}
+  
+.menu ul li a {
+  color: #FFFFFF;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding: 8px 15px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.menu ul li a:hover {
+  background-color: #D4A373;
+  color: #3B3B58;
+  border-radius: 5px;
+}
+
+.menu.active {
+    display: none;
+    flex-direction: column; /* Asegura que los elementos estén en columna */
+    align-items: flex-start; /* Alinea los elementos al inicio horizontalmente */
+    position: absolute; /* Posiciona el menú relativo a su contenedor */
+    top: 60px; /* Distancia desde la parte superior */
+    right: 0; /* Sin margen inicial para pantallas más grandes */
+    background-color: #3B3B58; /* Fondo oscuro */
+    width: 100%; /* Ocupa todo el ancho disponible */
+    max-width: 250px; /* Limita el ancho */
+    border-radius: 8px; /* Bordes suaves */
+    z-index: 1000; /* Mantén el menú en la parte superior */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Efecto flotante */
+    padding: 10px; /* Espaciado interno */
+    overflow: hidden; /* Evita contenido desbordado */
+}
+
+.buscador {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+  
+.buscador input {
+  width: 250px;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #D4A373;
+  outline: none;
+  transition: width 0.4s;
+}
+
+.buscador input:focus {
+  width: 300px;
+}
+
+.buscador i {
   position: absolute;
-  z-index: 4;
-  width: 50px;
-  height: 48px;
-  text-align: center;
-  box-shadow: 0 2px 5px 0 rgba(0,0,0,.15);
-  border: 0;
-  cursor: pointer;
-  }
-  .slick-arrow:focus{
-  outline: 0;
-  }
-  .slick-arrow svg{
-  width: 12px;
+  right: 10px;
+  color: #3B3B58;
+}
+
+.iconos {
+  display: flex;
+  align-items: center;
+}
+
+.iconos .carrito, .iconos .usuario {
+  background-color: #D4A373;
+  padding: 10px;
+  margin-left: 15px;
+  border-radius: 5px;
+  color: #3B3B58;
+}
+
+.iconos .carrito:hover, .iconos .usuario:hover {
+  background-color: #3B3B58;
+  color: #FFFFFF;
+}
+
+/* MAIN */
+/* Banner */
+.banner {
+  width: calc(100% - 0px); /* Restamos 20px para crear espacio a los lados */
   height: 100%;
-  color: rgba(0,0,0,.7);
-  }
-  .slick-prev{
-  left: -10px;
-  }
-  
-  .slick-next{
-  right: -15px;
-  }
-  
-  /* Footer */
-  footer {
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.banner ul {
+  display: flex;
+  padding: 0;
+  margin: 0;
+  width: 300%; /* Tres imágenes = 300% */
+  animation: slide 15s infinite alternate ease-in-out; /* Ajusta duración */
+}
+
+.banner li {
+  width: 100%; /* Cada imagen ocupa 100% del contenedor */
+  list-style: none;
+}
+
+.banner img {
+  width: 100%;
+  display: block;
+}
+
+/* Animación de Banner */
+@keyframes slide {
+  0%, 20% { margin-left: 0; }      
+  25%, 45% { margin-left: -100%; } 
+  50%, 70% { margin-left: -200%; } 
+}
+
+/* Productos Destacados (Populares) */
+.productos-destacados {
+
+  margin-top: 40px;
+  padding: 20px;
+  background-color: #FFFFFF;
+  text-align: center;
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.15);
+  border-radius: 15px; /* Bordes más suaves */
+  max-width: 1400px; /* Ancho máximo */
+  margin-left: auto; 
+  margin-right: auto; /* Centrado */
+}
+
+/* Título de la sección */
+.productos-destacados h2 {
+  font-size: 36px;
+  color: #3B3B58;
+  margin-bottom: 40px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 3px; 
+  position: relative;
+}
+
+.productos-destacados h2::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 4px;
+  background-color: #F3F1E5;
+  margin: 10px auto 0;
+  border-radius: 2px;
+}
+
+/* Contenedor de los productos */
+.productos {
+  display: flex;
+  flex-wrap: wrap; /* Permite ajuste dinámico */
+  justify-content: center; /* Alineación centrada */
+  gap: 20px; /* Espaciado entre productos */
+}
+
+/* Cada producto */
+.producto {
+  flex: 1 1 calc(20% - 10px); /* Cinco productos por fila */
+  max-width: 250px; /* Ajusta el ancho máximo para mantener equilibrio */
+  background-color: #F3F1E5;
+  border-radius: 15px;
+  margin: 5px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+
+.producto:hover {
+  transform: translateY(-10px); /* Efecto de elevación */
+  box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.2);
+  background-color: #3B3B58;
+}
+
+/* Imagen del producto */
+.producto img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover; /* Asegura que la imagen se vea bien */
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  transition: transform 0.3s ease;
+}
+
+.producto:hover img {
+  transform: scale(1.1); /* Zoom sutil */
+}
+
+/* Descripción del producto */
+.producto .descripcion {
+  padding: 20px;
+  font-size: 16px;
+  color: #3B3B58;
+  text-align: center;
+  font-weight: 500;
+}
+
+.producto:hover .descripcion {
+  color: #FFFFFF;
+}
+
+/* Botón de acción */
+.producto .btn {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #FFFFFF;
+  background-color: #3B3B58;
+  border: none;
+  border-radius: 25px;
+  text-transform: uppercase;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.producto .btn:hover {
+  background-color: #F3F1E5;
+  color: #3B3B58;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Info Productos */
+.info-productos {
+  display: flex;
+  justify-content: space-around;
+  background-color: #FFFFFF;
+  margin: 30px auto;
+  border-radius: 15px;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
+  padding: 30px;
+  gap: 30px; /* Espaciado entre las secciones de la información */
+  max-width: 1200px; /* Limita el ancho total de la sección */
+  flex-wrap: wrap; /* Permite que se adapte en dispositivos pequeños */
+}
+
+/* Estilos comunes para las columnas */
+.info1, .info2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 500px; /* Limita el ancho de cada columna */
+  margin-bottom: 20px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transiciones suaves */
+}
+.info1, .info2 {
+  width: 100%;
+  max-width: 500px; /* Limita el ancho de cada columna */
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+
+.info1:hover, .info2:hover {
+  transform: scale(1.03); /* Efecto de "zoom" al pasar el mouse */
+  box-shadow: 0px 6px 25px rgba(0, 0, 0, 0.2); /* Sombras más intensas */
+}
+
+.info1 img, .info2 img {
+  width: 100%;
+  max-width: 100%; /* Se ajusta al tamaño del contenedor */
+  height: auto;
+  border-radius: 15px;
+  padding: 10px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.info1 p, .info2 p {
+  width: 100%;
+  padding: 20px;
+  font-size: 16px;
+  font-weight: 400;
+  text-align: justify;
+  line-height: 1.8;
+  background-color: #F3F1E5; /* Fondo suave para los párrafos */
+  border-radius: 10px;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+  margin-top: 20px; /* Espaciado entre el texto y la imagen */
+}
+
+
+/* Seccion de SuperVentas */
+.superventas {
+  padding: 20px;
+  background-color: #FFFFFF;
+  text-align: center;
+}
+
+.superventas h2 {
+  font-size: 26px;
+  color: #3B3B58;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+.productos {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.producto {
+  position: relative; /* Necesario para posicionar el texto encima */
+  display: inline-block;
+}
+
+.producto img {
+  width: 100%;
+  max-width: 180px;
+  margin: 15px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease; /* Para un efecto suave al hover */
+}
+
+.producto img:hover {
+  transform: scale(1.05); /* Efecto zoom */
+}
+
+.producto .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #3b3b5895; /* Fondo semi-transparente */
+  color: #FFFFFF;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0; /* Oculto inicialmente */
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  transition: opacity 0.3s ease; /* Suaviza la transición */
+}
+
+.producto:hover .overlay {
+  opacity: 1; /* Aparece al hacer hover */
+}
+
+/* Footer */
+footer {
   background-color: #3B3B58;
   color: #FFFFFF;
   text-align: center;
   padding: 20px;
   margin-top: 40px;
+}
+
+
+/* Estilo del Modal */
+.modal {
+  display: none; 
+  position: fixed;
+  z-index: 1; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  overflow: auto; 
+  background-color: rgba(0, 0, 0, 0.4); 
+  padding-top: 60px;
+}
+
+.modal-content {
+  background-color: #f9f9f9;
+  margin: 5% auto; 
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; 
+  max-width: 600px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #333;
+  text-decoration: none;
+  cursor: pointer;
+}
+  
+/* Media Queries para Dispositivos Móviles */
+@media (max-width: 768px) {
+  
+  /* HEADER  */
+  header .container {
+    flex-direction: column;
+    align-items: center; /* Centra todos los elementos en el contenedor */
   }
   
+  .menu {
+    display: none; /* Oculta el menú dividido en pantallas pequeñas */
+  }
+
+  .menu ul {
+    display: flex;
+    flex-direction: column; /* Cambia a disposición vertical */
+    align-items: center; /* Centra horizontalmente */
+    justify-content: center; /* Centra verticalmente si es necesario */
+    margin: 0;
+    padding: 0;
+    gap: 10px; /* Espacio entre elementos del menú */
+  }
+
+  .menu ul li {
+    width: 100%; /* Asegura que los elementos ocupen todo el ancho disponible */
+    text-align: center; /* Centra el texto dentro del elemento */
+  }
+
+  .menu ul li a {
+    display: block;
+    padding: 10px 0; /* Ajusta el espaciado interno */
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+  }
+
+  .menu ul li a:hover {
+    background-color: #D4A373;
+    color: #3B3B58;
+  }
+
+  .menu.active {
+    display: flex;
+    top: 60px; /* Ajusta según la posición del header */
+    width: 100%; /* El menú ocupa todo el ancho */
+  }
+
+
+  .menu-toggle {
+    display: flex; /* Muestra el ícono de hamburguesa en pantallas pequeñas */
+    flex-direction: column;
+    cursor: pointer;
+    margin: 10px 0;
+  }
+
+  .menu-toggle .bar {
+    width: 25px;
+    height: 3px;
+    background-color: #FFFFFF;
+    margin: 3px 0;
+  }
+
+  .logo h1 a {
+    text-align: center;
+  }
+
+  .buscador {
+    width: 100%;
+    margin: 10px 0;
+  }
+
+  .buscador input {
+    width: 100%;
+  }
+
+  .iconos {
+    display: flex;
+    justify-content: center; /* Centra los iconos horizontalmente */
+    gap: 15px; /* Espacio entre iconos */
+    margin-top: 10px;
+  }
+
+
+  /* Banner */
+  .banner {
+    height: 400px; /* Reduce la altura del banner para pantallas pequeñas */
+  }
   
-  /* Media Queries */
-  
-  
+  .banner img {
+    object-fit: contain; /* Asegura que la imagen se vea completa */
+  }
+
+}
   

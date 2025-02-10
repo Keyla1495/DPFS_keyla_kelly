@@ -6,55 +6,103 @@ document.addEventListener("DOMContentLoaded", () => {
         menu.classList.toggle("active");
     });
 
-    // Contador de cantidad
-    const btnMenos = document.querySelector(".contador-btn:first-of-type");
-    const btnMas = document.querySelector(".contador-btn:last-of-type");
+    const btnsContador = document.querySelectorAll(".contador-btn");
     const cantidadSpan = document.querySelector(".contador-cantidad");
+    const cartIcon = document.getElementById("cartIcon");
+    const cartCount = document.getElementById("cartCount");
+    const cartNotification = document.getElementById("cart-notification");
+    const addToCartButton = document.querySelector(".añadirAlCarrito");
 
     let cantidad = 1;
+    let carrito = [];
 
-    btnMenos.addEventListener("click", () => {
-        if (cantidad > 1) {
-            cantidad--;
+    if (btnsContador.length === 2 && cantidadSpan) {
+        const [btnMenos, btnMas] = btnsContador;
+
+        btnMenos.addEventListener("click", () => {
+            if (cantidad > 1) {
+                cantidad--;
+                cantidadSpan.textContent = cantidad;
+            }
+        });
+
+        btnMas.addEventListener("click", () => {
+            cantidad++;
             cantidadSpan.textContent = cantidad;
-        }
-    });
+        });
+    }
 
-    btnMas.addEventListener("click", () => {
-        cantidad++;
-        cantidadSpan.textContent = cantidad;
-    });
+    if (addToCartButton && cartCount) {
+        addToCartButton.addEventListener("click", () => {
+            // Obtener información del producto
+            const titulo = document.querySelector(".titulo")?.textContent || "Producto sin título";
+            const precio = document.querySelector(".precio")?.textContent || "Precio no disponible";
+            const imagen = document.querySelector(".imagenDetalle img")?.src || "";
 
-    // Agregar al carrito
-    const btnCarrito = document.querySelector(".añadirAlCarrito");
-    const cartCount = document.getElementById("cartCount");
+            // Buscar si el producto ya está en el carrito
+            const productoExistente = carrito.find(p => p.titulo === titulo);
 
-    btnCarrito.addEventListener("click", () => {
-        let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
-        const producto = {
-            titulo: document.querySelector(".titulo").textContent,
-            precio: document.querySelector(".precio").textContent,
-            cantidad
-        };
+            if (productoExistente) {
+                // Si el producto ya está en el carrito, solo aumentar la cantidad
+                productoExistente.cantidad += cantidad;
+            } else {
+                // Si no está en el carrito, agregarlo con la cantidad actual
+                carrito.push({ titulo, precio, imagen, cantidad });
+            }
 
-        carrito.push(producto);
-        localStorage.setItem("carrito", JSON.stringify(carrito));
+            // Calcular la cantidad total en el carrito
+            const totalCantidad = carrito.reduce((sum, p) => sum + p.cantidad, 0);
+            cartCount.textContent = totalCantidad;
 
-        // Actualizar el contador del carrito
-        cartCount.textContent = carrito.length;
-        alert("Producto agregado al carrito");
-    });
+            // Mostrar notificación (si existe)
+            if (cartNotification) {
+                cartNotification.classList.add("show");
+                setTimeout(() => {
+                    cartNotification.classList.remove("show");
+                }, 2000);
+            }
+        });
+    }
+
+    if (cartIcon) {
+        cartIcon.addEventListener("click", () => {
+            if (carrito.length === 0) {
+                alert("El carrito está vacío.");
+            } else {
+                alert(`Carrito:\n${carrito.map(p => `📖 ${p.titulo} - ${p.precio} x${p.cantidad}`).join("\n")}`);
+            }
+        });
+    }
 
     // Carrusel de recomendados
     const track = document.getElementById("track");
-    const prevBtn = document.getElementById("button-prev");
-    const nextBtn = document.getElementById("button-next");
+    const prevButton = document.getElementById("button-prev");
+    const nextButton = document.getElementById("button-next");
+    const slides = document.querySelectorAll(".slick");
+    const slideWidth = slides[0].offsetWidth; // Obtener el ancho de una imagen
 
-    nextBtn.addEventListener("click", () => {
-        track.scrollBy({ left: 200, behavior: "smooth" });
+    let currentIndex = 0;
+
+    nextButton.addEventListener("click", () => {
+        if (currentIndex < slides.length - 1) {
+            currentIndex++;
+        } else {
+            currentIndex = 0; // Regresa al inicio cuando llega al final
+        }
+        moveCarousel();
     });
 
-    prevBtn.addEventListener("click", () => {
-        track.scrollBy({ left: -200, behavior: "smooth" });
+    prevButton.addEventListener("click", () => {
+        if (currentIndex > 0) {
+            currentIndex--;
+        } else {
+            currentIndex = slides.length - 1; // Regresa al final cuando está en la primera imagen
+        }
+        moveCarousel();
     });
+
+    function moveCarousel() {
+        track.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+    }
+   
 });

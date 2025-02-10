@@ -151,6 +151,30 @@ header .container {
   color: #FFFFFF;
 }
 
+#cart-notification {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #3B3B58; /* Color de fondo */
+  color: #F3F1E5; /* Color del texto */
+  padding: 15px 20px;
+  border-radius: 8px;
+  font-size: 16px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+#cart-notification.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hidden {
+  display: none;
+}
+
 
 /*---------------------  */
 
@@ -191,6 +215,7 @@ padding: 10px;}
 .infoProducto .precio{
   font-size: 25px ;
 }
+
 
 
 

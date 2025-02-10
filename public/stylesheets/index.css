@@ -1,61 +1,87 @@
-/* Estilo Global */
+/* Teléfonos móviles (diseño principal) */
 body {
   margin: 0;
   padding: 0;
   font-family: 'Arial', sans-serif;
   background-color: #F3F1E5;
   color: #2E2E2E;
-  box-sizing: border-box; /* Asegura que el padding y border no afecten el ancho total */
+  box-sizing: border-box;
 }
 
 /* Header */
 header {
   background-color: #3B3B58;
   color: #FFFFFF;
+  padding: 10px 0px;
+  text-align: center;
 }
-  
+
 header .container {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   align-items: center;
-  padding: 10px 20px;
-  flex-wrap: wrap;
 }
-    
+
+/* Logo */
 .logo h1 a {
   font-family: "Bebas Neue", sans-serif;
   font-weight: 400;
-  font-size: 36px; 
+  font-size: 40px;
+  font-style: italic;
   color: #D4A373;
-  text-decoration: none;  
-  margin-left: 15px;
-  flex: 1;
-  text-align: center; /* Centra el texto en pantallas pequeñas */
+  text-decoration: none;
 }
-  
+
+/* Menú */
 .menu {
-  display: flex;
-  align-items: center;
+  display: none;
+  width: 100%;
+}
+
+.menu.active{
+  display: flex; 
+  width: 100%; /* Ocupa todo el ancho disponible */
+  max-width: 400px; /* Limita el ancho */
+  padding: 0px 0px 10px 0px; /* Espaciado interno */
+ 
+}
+
+.menu-toggle {
+  display: flex; /* Muestra el ícono de hamburguesa en pantallas pequeñas */
+  flex-direction: column;
+  cursor: pointer;
+  margin: 10px 0px 2px 0px;
+}
+
+.menu-toggle .bar {
+  /*Modificaciones para el icono de hamburgues*/
+  width: 25px; 
+  height: 3px;
+  background-color: #FFFFFF;
+  margin: 3px 0;
 }
 
 .menu ul {
   list-style: none;
   display: flex;
-  margin: 0;
+  flex-direction: row;
+  width: 100%;
   padding: 0;
 }
-  
+
 .menu ul li {
-  margin: 0 20px;
+  text-align: center;
+  width: 100%;
 }
-  
+
 .menu ul li a {
+  /* Diseño para efecto de navegacion */
   color: #FFFFFF;
   text-decoration: none;
-  font-size: 15px;
+  font-size: 14px;
   font-weight: bold;
   text-transform: uppercase;
-  padding: 8px 15px;
+  padding: 10px;
   transition: background-color 0.3s, color 0.3s;
 }
 
@@ -65,30 +91,34 @@ header .container {
   border-radius: 5px;
 }
 
-.menu.active {
-    display: none;
-    flex-direction: column; /* Asegura que los elementos estén en columna */
-    align-items: flex-start; /* Alinea los elementos al inicio horizontalmente */
-    position: absolute; /* Posiciona el menú relativo a su contenedor */
-    top: 60px; /* Distancia desde la parte superior */
-    right: 0; /* Sin margen inicial para pantallas más grandes */
-    background-color: #3B3B58; /* Fondo oscuro */
-    width: 100%; /* Ocupa todo el ancho disponible */
-    max-width: 250px; /* Limita el ancho */
-    border-radius: 8px; /* Bordes suaves */
-    z-index: 1000; /* Mantén el menú en la parte superior */
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Efecto flotante */
-    padding: 10px; /* Espaciado interno */
-    overflow: hidden; /* Evita contenido desbordado */
-}
-
+/* Buscador */
 .buscador {
   display: flex;
-  align-items: center;
   position: relative;
+  justify-content: center;
+  margin-top: 10px;
 }
-  
+
 .buscador input {
+  width: 200px;
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid #D4A373;
+  outline: none;
+}
+
+.buscador i {
+  position: absolute;
+  color: #3B3B58; 
+  right: 10px; /* Ajusta la posición a la derecha */
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.buscador input {
+  /* Efecto del buscador */
   width: 250px;
   padding: 10px;
   border-radius: 10px;
@@ -97,25 +127,21 @@ header .container {
   transition: width 0.4s;
 }
 
-.buscador input:focus {
-  width: 300px;
+.buscador input:focus{
+ width: 400px;
 }
 
-.buscador i {
-  position: absolute;
-  right: 10px;
-  color: #3B3B58;
-}
-
+/* Íconos */
 .iconos {
   display: flex;
-  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
 }
 
 .iconos .carrito, .iconos .usuario {
   background-color: #D4A373;
-  padding: 10px;
-  margin-left: 15px;
+  padding: 8px;
   border-radius: 5px;
   color: #3B3B58;
 }
@@ -124,275 +150,6 @@ header .container {
   background-color: #3B3B58;
   color: #FFFFFF;
 }
-
-/* MAIN */
-/* Banner */
-.banner {
-  width: calc(100% - 0px); /* Restamos 20px para crear espacio a los lados */
-  height: 100%;
-  margin: 0 auto;
-  overflow: hidden;
-}
-
-.banner ul {
-  display: flex;
-  padding: 0;
-  margin: 0;
-  width: 300%; /* Tres imágenes = 300% */
-  animation: slide 15s infinite alternate ease-in-out; /* Ajusta duración */
-}
-
-.banner li {
-  width: 100%; /* Cada imagen ocupa 100% del contenedor */
-  list-style: none;
-}
-
-.banner img {
-  width: 100%;
-  display: block;
-}
-
-/* Animación de Banner */
-@keyframes slide {
-  0%, 20% { margin-left: 0; }      
-  25%, 45% { margin-left: -100%; } 
-  50%, 70% { margin-left: -200%; } 
-}
-
-/* Productos Destacados (Populares) */
-.productos-destacados {
-  margin-top: 40px;
-  padding: 20px;
-  background-color: #FFFFFF;
-  text-align: center;
-  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.15);
-  border-radius: 15px; /* Bordes más suaves */
-  max-width: 1400px; /* Ancho máximo */
-  margin-left: auto; 
-  margin-right: auto; /* Centrado */
-}
-
-/* Título de la sección */
-.productos-destacados h2 {
-  font-size: 36px;
-  color: #3B3B58;
-  margin-bottom: 40px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 3px; 
-  position: relative;
-}
-
-.productos-destacados h2::after {
-  content: '';
-  display: block;
-  width: 60px;
-  height: 4px;
-  background-color: #F3F1E5;
-  margin: 10px auto 0;
-  border-radius: 2px;
-}
-
-/* Contenedor de los productos */
-.productos {
-  display: flex;
-  flex-wrap: wrap; /* Permite ajuste dinámico */
-  justify-content: center; /* Alineación centrada */
-  gap: 20px; /* Espaciado entre productos */
-}
-
-/* Cada producto */
-.producto {
-  flex: 1 1 calc(20% - 10px); /* Cinco productos por fila */
-  max-width: 250px; /* Ajusta el ancho máximo para mantener equilibrio */
-  background-color: #F3F1E5;
-  border-radius: 15px;
-  margin: 5px;
-  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15);
-  overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
-}
-
-
-.producto:hover {
-  transform: translateY(-10px); /* Efecto de elevación */
-  box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.2);
-  background-color: #3B3B58;
-}
-
-/* Imagen del producto */
-.producto img {
-  width: 100%;
-  height: 220px;
-  object-fit: cover; /* Asegura que la imagen se vea bien */
-  border-top-left-radius: 15px;
-  border-top-right-radius: 15px;
-  transition: transform 0.3s ease;
-}
-
-.producto:hover img {
-  transform: scale(1.1); /* Zoom sutil */
-}
-
-/* Descripción del producto */
-.producto .descripcion {
-  padding: 20px;
-  font-size: 16px;
-  color: #3B3B58;
-  text-align: center;
-  font-weight: 500;
-}
-
-.producto:hover .descripcion {
-  color: #FFFFFF;
-}
-
-/* Botón de acción */
-.producto .btn {
-  display: inline-block;
-  margin-top: 15px;
-  padding: 10px 20px;
-  font-size: 14px;
-  font-weight: bold;
-  color: #FFFFFF;
-  background-color: #3B3B58;
-  border: none;
-  border-radius: 25px;
-  text-transform: uppercase;
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
-  cursor: pointer;
-}
-
-.producto .btn:hover {
-  background-color: #F3F1E5;
-  color: #3B3B58;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-}
-
-/* Info Productos */
-.info-productos {
-  display: flex;
-  justify-content: space-around;
-  background-color: #FFFFFF;
-  margin: 30px auto;
-  border-radius: 15px;
-  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
-  padding: 30px;
-  gap: 30px; /* Espaciado entre las secciones de la información */
-  max-width: 1200px; /* Limita el ancho total de la sección */
-  flex-wrap: wrap; /* Permite que se adapte en dispositivos pequeños */
-}
-
-/* Estilos comunes para las columnas */
-.info1, .info2 {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  max-width: 500px; /* Limita el ancho de cada columna */
-  margin-bottom: 20px;
-  text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transiciones suaves */
-}
-
-.info1:hover, .info2:hover {
-  transform: scale(1.03); /* Efecto de "zoom" al pasar el mouse */
-  box-shadow: 0px 6px 25px rgba(0, 0, 0, 0.2); /* Sombras más intensas */
-}
-
-.info1 img, .info2 img {
-  width: 100%;
-  max-width: 100%; /* Se ajusta al tamaño del contenedor */
-  height: auto;
-  border-radius: 15px;
-  padding: 10px;
-  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
-}
-
-.info1 p, .info2 p {
-  width: 100%;
-  padding: 20px;
-  font-size: 16px;
-  font-weight: 400;
-  text-align: justify;
-  line-height: 1.8;
-  background-color: #F3F1E5; /* Fondo suave para los párrafos */
-  border-radius: 10px;
-  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
-  margin-top: 20px; /* Espaciado entre el texto y la imagen */
-}
-
-
-/* Seccion de SuperVentas */
-.superventas {
-  padding: 20px;
-  background-color: #FFFFFF;
-  text-align: center;
-}
-
-.superventas h2 {
-  font-size: 26px;
-  color: #3B3B58;
-  margin-bottom: 20px;
-  text-transform: uppercase;
-}
-
-.productos {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-.producto {
-  position: relative; /* Necesario para posicionar el texto encima */
-  display: inline-block;
-}
-
-.producto img {
-  width: 100%;
-  max-width: 180px;
-  margin: 15px;
-  border-radius: 10px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease; /* Para un efecto suave al hover */
-}
-
-.producto img:hover {
-  transform: scale(1.05); /* Efecto zoom */
-}
-
-.producto .overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: #3b3b5895; /* Fondo semi-transparente */
-  color: #FFFFFF;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  opacity: 0; /* Oculto inicialmente */
-  border-radius: 10px;
-  font-size: 16px;
-  font-weight: bold;
-  transition: opacity 0.3s ease; /* Suaviza la transición */
-}
-
-.producto:hover .overlay {
-  opacity: 1; /* Aparece al hacer hover */
-}
-
-/* Footer */
-footer {
-  background-color: #3B3B58;
-  color: #FFFFFF;
-  text-align: center;
-  padding: 20px;
-  margin-top: 40px;
-}
-
 
 /* Estilo del Modal */
 .modal {
@@ -432,101 +189,316 @@ footer {
   text-decoration: none;
   cursor: pointer;
 }
-  
-/* Media Queries para Dispositivos Móviles */
-@media (max-width: 768px) {
-  
-  /* HEADER  */
-  header .container {
-    flex-direction: column;
-    align-items: center; /* Centra todos los elementos en el contenedor */
+
+#cart-notification {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #3B3B58; /* Color de fondo */
+  color: #F3F1E5; /* Color del texto */
+  padding: 15px 20px;
+  border-radius: 8px;
+  font-size: 16px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+#cart-notification.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hidden {
+  display: none;
+}
+
+/* ---------------------------- */
+
+/* MAIN */
+/* Banner */
+.banner {
+  width: calc(100% - 0px); /* Restamos 20px para crear espacio a los lados */
+  height: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.banner ul {
+  display: flex;
+  padding: 0;
+  margin: 0;
+  width: 300%; /* Tres imágenes = 300% */
+  animation: slide 15s infinite alternate ease-in-out; /* Ajusta duración */
+}
+
+.banner li {
+  width: 100%; /* Cada imagen ocupa 100% del contenedor */
+  list-style: none;
+}
+
+.banner img {
+  width: 100%;
+  display: block;
+}
+
+/* Animación de Banner */
+@keyframes slide {
+  0%, 20% { margin-left: 0; }      
+  25%, 45% { margin-left: -100%; } 
+  50%, 70% { margin-left: -200%; } 
+}
+
+/* Productos Destacados (Populares) */
+.productos-destacados h2 {
+  font-size: 36px;
+  color: #3B3B58;
+  margin-bottom: 40px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  text-align: start; 
+}
+
+.productos-destacados {
+  margin-top: 40px;
+  padding: 20px;
+  background-color: #FFFFFF;
+  text-align: center;
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.15);
+  border-radius: 15px; /* Bordes más suaves */
+  max-width: 1400px; /* Ancho máximo */
+  margin-left: auto; 
+  margin-right: auto; /* Centrado */
+}
+
+/* Contenedor de los productos */
+.populares {
+  display: flex;
+  flex-wrap: wrap; /* Permite ajuste dinámico */
+  justify-content: center; /* Alineación centrada */
+  gap: 20px; /* Espaciado entre productos */
+}
+
+/* Cada producto */
+.popular {
+  max-width: 200px;
+  background-color: #F3F1E5;
+  border-radius: 15px;
+  margin: 10px;
+  padding: 15px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+figcaption{
+  font-size: 15px;
+  margin-top: 10px;
+  padding-top: 12px;
+  text-align: center;
+}
+
+/* Imagen del producto destacados */
+.popular img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover; /* Asegura que la imagen se vea bien */
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  transition: transform 0.3s ease;
+}
+
+.popular:hover img {
+  transform: scale(1.1); /* Zoom sutil */
+}
+
+/* Informacion de Productos */
+
+.info-productos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  background-color: #FFFFFF;
+  margin: 30px auto;
+  border-radius: 15px;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
+  padding: 30px;
+}
+
+.info1 img, .info2 img {
+  max-width: 100%; /* Se ajusta al tamaño del contenedor */
+  width: 100%;
+  border-radius: 15px;
+  padding: 10px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.info1, .info2 {
+  width: 100%;
+  max-width: 500px; /* Limita el ancho de cada columna */
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+
+.info1 p, .info2 p {
+  width: 100%;
+  font-size: 16px;
+  text-align: justify;
+  line-height: 1.8;
+  margin-top: 20px; /* Espaciado entre el texto y la imagen */
+}
+
+
+/* Seccion de SuperVentas */
+.superventas {
+  padding: 25px;
+  background-color: #ffffff;
+  text-align: center;
+}
+
+.superventas h2 {
+  font-size: 26px;
+  color: #3B3B58;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+.productos {
+  display: flex;
+  flex-wrap: wrap; /* Permite ajuste dinámico */
+  justify-content: center; /* Alineación centrada */
+}
+
+.producto {
+  /* caja de imagenes superventas */
+  max-width: 150px;
+  border-radius: 15px;
+  margin: 10px;
+  padding: 15px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15);
+  position: relative;
+  overflow: hidden;
+}
+
+.producto img {
+  /* imagenes de Superventas */
+  width: 100%;
+  display: flex;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease; /* Para un efecto suave al hover */
+}
+
+.overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #d4a37341;
+  color:#d4a373;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight:800;
+  opacity: 0;  /* Oculto por defecto */
+  transition: opacity 0.3s ease-in-out;
+}
+
+.producto:hover .overlay {
+  opacity: 1; /* Aparece al hacer hover */
+}
+
+
+
+/* ---------------------- */
+
+/* FOOTER */
+
+footer {
+  background-color: #3B3B58;
+  color: #FFFFFF;
+  text-align: center;
+  padding: 20px;
+  margin-top: 40px;
+}
+
+
+
+@media (min-width:769px) {
+  /* HEADER */
+  header {
+    width: 100%;
   }
-  
+
+  header .container {
+    display: flex;
+    flex-direction: row; 
+    justify-content: space-between; 
+    align-items: center;
+    padding: 0px 20px;
+    max-width: 1200px; /* Limitar el ancho máximo */
+    margin: 0 auto;
+  }
+
+  .logo {
+    flex: 1; /* Ocupa espacio proporcionalmente */
+    text-align: left;
+  }
+
   .menu {
-    display: none; /* Oculta el menú dividido en pantallas pequeñas */
+    display: flex;
+    flex: 2; /* Ocupa más espacio */
+    justify-content: center; /* Centrar el menú */
   }
 
   .menu ul {
     display: flex;
-    flex-direction: column; /* Cambia a disposición vertical */
-    align-items: center; /* Centra horizontalmente */
-    justify-content: center; /* Centra verticalmente si es necesario */
+    width: auto;
     margin: 0;
-    padding: 0;
-    gap: 10px; /* Espacio entre elementos del menú */
   }
 
   .menu ul li {
-    width: 100%; /* Asegura que los elementos ocupen todo el ancho disponible */
-    text-align: center; /* Centra el texto dentro del elemento */
+    padding: 0 15px;
   }
-
-  .menu ul li a {
-    display: block;
-    padding: 10px 0; /* Ajusta el espaciado interno */
-    font-size: 14px;
-    font-weight: bold;
-    text-transform: uppercase;
-    color: #FFFFFF;
-    text-decoration: none;
-    transition: background-color 0.3s ease;
-  }
-
-  .menu ul li a:hover {
-    background-color: #D4A373;
-    color: #3B3B58;
-  }
-
-  .menu.active {
-    display: flex;
-    top: 60px; /* Ajusta según la posición del header */
-    width: 100%; /* El menú ocupa todo el ancho */
-  }
-
 
   .menu-toggle {
-    display: flex; /* Muestra el ícono de hamburguesa en pantallas pequeñas */
-    flex-direction: column;
-    cursor: pointer;
-    margin: 10px 0;
-  }
-
-  .menu-toggle .bar {
-    width: 25px;
-    height: 3px;
-    background-color: #FFFFFF;
-    margin: 3px 0;
-  }
-
-  .logo h1 a {
-    text-align: center;
+    display: none; /* Ocultar menú hamburguesa */
   }
 
   .buscador {
-    width: 100%;
-    margin: 10px 0;
-  }
-
-  .buscador input {
-    width: 100%;
+    flex: 1; /* Ocupa espacio proporcional */
+    display: flex;
+    justify-content: flex-end;
   }
 
   .iconos {
     display: flex;
-    justify-content: center; /* Centra los iconos horizontalmente */
-    gap: 15px; /* Espacio entre iconos */
-    margin-top: 10px;
+    gap: 15px;
+    padding: 12px;
   }
 
 
-  /* Banner */
-  .banner {
-    height: 400px; /* Reduce la altura del banner para pantallas pequeñas */
+  .info-productos {
+    max-width: 1200px; /* Limita el ancho total de la sección */
+    gap: 30px; /* Espaciado entre las secciones de la información */
   }
-  
-  .banner img {
-    object-fit: contain; /* Asegura que la imagen se vea completa */
+
+  .info1, .info2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+ /* Productos Destacados (Populares) */
+
+  .productos-destacados h2 {
+    text-align: center;
   }
 
 }
-  

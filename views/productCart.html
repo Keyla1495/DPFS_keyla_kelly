@@ -13,25 +13,46 @@
 <body>
     <header>
         <div class="container">
+            <!-- Menu Hamburguesa -->
+            <div class="menu-toggle" id="menuToggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+
+            <!-- Logo -->
             <div class="logo">
                 <h1><a href="./index.html">Fantasy World</a></h1>
             </div>
-            <nav class="menu">
+            
+            <!-- Menu Principal -->
+            <nav class="menu" id="menu">
                 <ul>
-                    <li><a href="./index.html">Inicio</a></li>
+                    <li><a href="./home.html">Inicio</a></li>
                     <li><a href="./nosotros.html">Nosotros</a></li>
-                    <li><a href="#">Libros</a></li>
-                    <li><a href="#">Contacto</a></li>
+                    <li><a href="">Libros</a></li>
+                    <li><a href="/contacto">Contacto</a></li>
                 </ul>
             </nav>
+
+            <!-- Buscador -->
             <div class="buscador">
                 <input type="search" placeholder="Buscar...">
                 <i class="fa-solid fa-magnifying-glass"></i>
             </div>
+
+            <!-- Iconos de usuario y Carrito -->
             <div class="iconos">
-                <div class="carrito"><a href="./productCart.html"><i class="fa-solid fa-cart-shopping"></i></a></div>
-                <div class="usuario"><a href="./login.html"><i class="fa-solid fa-user"></i></a></div>
+                <div class="carrito" id="cartIcon">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <span class="cart-count" id="cartCount">0</span>
+                </div>
+                <div class="usuario">
+                    <i class="fa-solid fa-user"></i></a>
+                </div>
             </div>
+            <div id="cart-notification" class="hidden">Producto agregado al carrito</div>
+
         </div>
     </header>
 
@@ -87,6 +108,7 @@
     <footer>
         <p>&copy; 2024 Fantasy World. Todos los derechos reservados.</p>
     </footer>
+    <script src="../public/javascripts/productCart.js"></script>
 </body>
 </html>
 
