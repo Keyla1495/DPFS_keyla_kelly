@@ -8,53 +8,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
-    <title>Fantasy World - Carrito de Compras</title>
+    <title>Carrito de Compras</title>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <!-- Menu Hamburguesa -->
-            <div class="menu-toggle" id="menuToggle">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
-
-            <!-- Logo -->
-            <div class="logo">
-                <h1><a href="./index.html">Fantasy World</a></h1>
-            </div>
-            
-            <!-- Menu Principal -->
-            <nav class="menu" id="menu">
-                <ul>
-                    <li><a href="./home.html">Inicio</a></li>
-                    <li><a href="./nosotros.html">Nosotros</a></li>
-                    <li><a href="">Libros</a></li>
-                    <li><a href="/contacto">Contacto</a></li>
-                </ul>
-            </nav>
-
-            <!-- Buscador -->
-            <div class="buscador">
-                <input type="search" placeholder="Buscar...">
-                <i class="fa-solid fa-magnifying-glass"></i>
-            </div>
-
-            <!-- Iconos de usuario y Carrito -->
-            <div class="iconos">
-                <div class="carrito" id="cartIcon">
-                    <i class="fa-solid fa-cart-shopping"></i>
-                    <span class="cart-count" id="cartCount">0</span>
-                </div>
-                <div class="usuario">
-                    <i class="fa-solid fa-user"></i></a>
-                </div>
-            </div>
-            <div id="cart-notification" class="hidden">Producto agregado al carrito</div>
-
-        </div>
-    </header>
+   
+    <%- include("partials/header") %>
 
     <main>
         <section class="cart">
@@ -105,10 +63,8 @@
         </section>
     </main>
 
-    <footer>
-        <p>&copy; 2024 Fantasy World. Todos los derechos reservados.</p>
-    </footer>
-    <script src="../public/javascripts/productCart.js"></script>
+    <%- include("./partials/footer") %>
+    
 </body>
 </html>
 

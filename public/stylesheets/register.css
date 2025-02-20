@@ -1,4 +1,4 @@
-body {
+.register-page-body  {
   height: 100vh;
   margin: 0;
   font-family: Arial, sans-serif;
@@ -124,6 +124,8 @@ button:hover {
   margin-top: 10px;
   font-size: 14px;
 }
+
+
 
 /* Media Queries para diseño responsivo */
 @media (max-width: 768px) {

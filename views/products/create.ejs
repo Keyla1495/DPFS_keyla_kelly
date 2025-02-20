@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+<%- include('./partials/head') %>
+
+    
+    <body>
+
+        <%- include('./partials/header')%>
+        
+        
+        <main class="container">
+            <h2>Nuevo Producto</h2>
+            <form action="" method="POST" enctype="">
+                <label for="name">Nombre:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="description">Descripción:</label>
+                <textarea id="description" name="description" required></textarea>
+
+                <label for="image">Imagen:</label>
+                <input type="file" id="image" name="image" accept="image/*">
+
+                <label for="category">Categoría:</label>
+                <input type="text" id="category" name="category" required>
+
+                <label for="price">Precio:</label>
+                <input type="number" id="price" name="price" required>
+
+                <button type="submit">Guardar producto</button>
+            </form>
+        </main>
+
+        <%- include('./partials/footer')%>
+
+        <script src="javascripts/menuToggle.js"></script>
+
+    </body>
+</html>

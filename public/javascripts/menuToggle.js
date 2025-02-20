@@ -15,8 +15,3 @@ cartIcon.addEventListener("click", () =>{
     cartItems++;
     cartCount.textContent = cartItems;
 });
-
-
-
-
-

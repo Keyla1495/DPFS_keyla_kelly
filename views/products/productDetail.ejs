@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+
+  <%-include("../partials/head") %>
+
+<body>
+    
+    <%-include("../partials/header") %>
+
+    <main>
+        <section class="detalleProducto">
+            <div class="imagenDetalle">
+              <img src="<%= product.image %>" alt="<%= product.name %>">
+            </div>
+            <div class="infoProducto">
+                <h1><%= product.name %></h1>
+                <h2 class="autor">Lorem ipsum dolor sit.</h2>
+                <p class="disponibles">Disponibilidad: 4</p>
+                <h2 class="precio">Precio: $<%= product.price %></h2>
+                <div class="contador">
+                    <button class="contador-btn">-</button>
+                    <span class="contador-cantidad">1</span>
+                    <button class="contador-btn">+</button>
+                    <div class="boton-container">
+                    <button class="añadirAlCarrito">Añadir al Carrito</button>
+                    </div>
+                </div>
+                
+            </div>
+           
+        </section>
+        <section>
+        <div class="descripcionProducto">
+            <h2>Descripción del Producto</h2>
+            <p><%= product.description %></p>
+        </div>
+        
+
+        <section class="recomendados">
+            <div class="Carrusel">
+              <h2>Recomendados</h2>
+              <div class="slick-list" id="slick-list">
+                <button class="slick-arrow slick-prev" id="button-prev">
+                  &#10094;
+                </button>
+                <div class="slick-track" id="track">
+                  <div class="slick"><img src="/images/De Lukov, con amor.jpeg" alt="De Lukov, con amor"></div>
+                  <div class="slick"><img src="/images/Libro El Diario de Ana Frank.jpg" alt="El Diario de Ana Frank"></div>
+                  <div class="slick"><img src="/images/Libro Lascivia.jpg" alt="Lascivia"></div>
+                  <div class="slick"><img src="/images/Portada del Libro Cada Niña que murio.jpg" alt="Cada Niña que murio"></div>
+                  <div class="slick"><img src="/images/Portada del Libro Cinder.jpeg" alt="Cinder"></div>
+                  <div class="slick"><img src="/images/Portada del Libro de Actividades para preescolar.jpg" alt="Actividades para preescolar"></div>
+                  <div class="slick"><img src="/images/Portada del Libro No es lo que parece.jpg" alt="No es lo que parece"></div>
+                  <div class="slick"><img src="/images/Portada del Libro Winter.jpeg" alt="Winter"></div>
+                </div>
+                <button class="slick-arrow slick-next" id="button-next">
+                  &#10095;
+                </button>
+              </div>
+            </div>
+          </section>
+    </main>
+
+    <%- include("../partials/footer") %>
+    <script src="/javascripts/productDetail.js"></script>
+    
+</body>
+</html>

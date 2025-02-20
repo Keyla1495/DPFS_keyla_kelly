@@ -200,7 +200,7 @@ padding: 10px;}
   margin-bottom: 0;
 }
 
-.subtitulo{
+.autor{
   font-size: 12px;
   text-align:right;
   color: #D4A373;
@@ -360,8 +360,7 @@ padding: 10px;}
 
 /* ---------------------------- */
 
-/* FOOTER */
-
+/***************** FOOTER *****************/
 footer {
   background-color: #3B3B58;
   color: #FFFFFF;
@@ -369,7 +368,6 @@ footer {
   padding: 20px;
   margin-top: 40px;
 }
-
 /* MEDIA QUERIES */
 
 @media (min-width:769px){
@@ -459,7 +457,7 @@ footer {
     margin: 0;
   }
 
-  .subtitulo{
+  .autor{
     font-size: 12px;
     text-align:left;
     padding-bottom: 15px;

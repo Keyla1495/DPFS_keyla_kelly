@@ -1,0 +1,334 @@
+/* Teléfonos móviles (diseño principal) */
+html, body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #F3F1E5;
+    color: #2E2E2E;
+    box-sizing: border-box;
+  }
+  
+  /* Header */
+  header {
+    background-color: #3B3B58;
+    color: #FFFFFF;
+    padding: 10px 0px;
+    text-align: center;
+  }
+  
+  header .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  /* Logo */
+  .logo h1 a {
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 400;
+    font-size: 40px;
+    font-style: italic;
+    color: #D4A373;
+    text-decoration: none;
+  }
+  
+  /* Menú */
+
+  .menu {
+    display: none;
+    width: 100%;
+  }
+  
+  .menu.active{
+    display: flex; 
+    width: 100%; /* Ocupa todo el ancho disponible */
+    max-width: 400px; /* Limita el ancho */
+    padding: 0px 0px 10px 0px; /* Espaciado interno */
+   
+  }
+  
+  .menu-toggle {
+    display: flex; /* Muestra el ícono de hamburguesa en pantallas pequeñas */
+    flex-direction: column;
+    cursor: pointer;
+    margin: 10px 0px 2px 0px;
+  }
+  
+  .menu-toggle .bar {
+    /*Modificaciones para el icono de hamburgues*/
+    width: 25px; 
+    height: 3px;
+    background-color: #FFFFFF;
+    margin: 3px 0;
+  }
+  
+  .menu ul {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    padding: 0;
+  }
+  
+  .menu ul li {
+    text-align: center;
+    width: 100%;
+  }
+  
+  .menu ul li a {
+    /* Diseño para efecto de navegacion */
+    color: #FFFFFF;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 10px;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .menu ul li a:hover {
+    background-color: #D4A373;
+    color: #3B3B58;
+    border-radius: 5px;
+  }
+  
+  /* Buscador */
+  .buscador {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    margin-top: 10px;
+  }
+  
+  .buscador input {
+    width: 200px;
+    padding: 8px;
+    border-radius: 8px;
+    border: 1px solid #D4A373;
+    outline: none;
+  }
+  
+  .buscador i {
+    position: absolute;
+    color: #3B3B58; 
+    right: 10px; /* Ajusta la posición a la derecha */
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .buscador input {
+    /* Efecto del buscador */
+    width: 250px;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #D4A373;
+    outline: none;
+    transition: width 0.4s;
+  }
+  
+  .buscador input:focus{
+   width: 400px;
+  }
+  
+  /* Íconos */
+  .iconos {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+  }
+  
+  .iconos .carrito, .iconos .usuario {
+    background-color: #D4A373;
+    padding: 8px;
+    border-radius: 5px;
+    color: #3B3B58;
+  }
+  
+  .iconos .carrito:hover, .iconos .usuario:hover {
+    background-color: #3B3B58;
+    color: #FFFFFF;
+  }
+  
+  /* Estilo del Modal */
+  .modal {
+    display: none; 
+    position: fixed;
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgba(0, 0, 0, 0.4); 
+    padding-top: 60px;
+  }
+  
+  .modal-content {
+    background-color: #f9f9f9;
+    margin: 5% auto; 
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; 
+    max-width: 600px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  }
+  
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #333;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  #cart-notification {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #3B3B58; /* Color de fondo */
+    color: #F3F1E5; /* Color del texto */
+    padding: 15px 20px;
+    border-radius: 8px;
+    font-size: 16px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+  
+  #cart-notification.show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .hidden {
+    display: none;
+  }
+/***************** MAIN *****************/
+  
+  main{
+    flex: 1;
+  }
+
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
+}
+
+.book {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    margin: 15px;
+    padding: 15px;
+    width: 200px;
+    text-align: justify;
+    overflow: hidden;
+}
+
+.book:hover {
+  transform:scale(0.9);
+}
+
+.book img {
+    width: 100%;
+    border-radius: 5px;
+}
+.book h3{
+  text-align: center;
+  font-size: 18px;
+  margin: 10px;
+  padding: 5px;
+}
+
+.book .precio{
+  font-size: 14px;
+  color: rgb(47, 255, 82);
+}
+
+
+/***************** FOOTER *****************/
+footer {
+  background-color: #3B3B58;
+  color: #FFFFFF;
+  text-align: center;
+  padding: 20px;
+  margin-top: 0 auto;
+}
+
+
+@media (min-width:769px){
+  /* HEADER */
+  header {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0 20px;
+  }
+
+  header .container {
+    display: flex;
+    flex-direction: row; 
+    justify-content: space-between; 
+    align-items: center;
+    padding: 0px 20px;
+    max-width: 1200px; /* Limitar el ancho máximo */
+    margin: 0 auto;
+  }
+
+  .logo {
+    flex: 1; /* Ocupa espacio proporcionalmente */
+    text-align: left;
+  }
+
+  .menu {
+    display: flex;
+    flex: 2; /* Ocupa más espacio */
+    justify-content: center; /* Centrar el menú */
+  }
+
+  .menu ul {
+    display: flex;
+    width: auto;
+    margin: 0;
+  }
+
+  .menu ul li {
+    padding: 0 15px;
+  }
+
+  .menu-toggle {
+    display: none; /* Ocultar menú hamburguesa */
+  }
+
+  .buscador {
+    flex: 1; /* Ocupa espacio proporcional */
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .iconos {
+    display: flex;
+    gap: 15px;
+    padding: 12px;
+  }
+
+}

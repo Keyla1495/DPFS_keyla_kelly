@@ -1,0 +1,50 @@
+<header>
+    <div class="container">
+        <!-- Menu Hamburguesa -->
+        <div class="menu-toggle" id="menuToggle">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+
+        <!-- Logo -->
+        <div class="logo">
+            <h1><a href="/">Fantasy World</a></h1>
+        </div>
+        
+        <!-- Menu Principal -->
+        <nav class="menu" id="menu">
+            <ul>
+                <li><a href="/">Inicio</a></li>
+                <li><a href="/nosotros">Nosotros</a></li>
+                <li><a href="/libros">Libros</a></li>
+                <li><a href="/contacto">Contacto</a></li>
+            </ul>
+        </nav>
+
+        <!-- Buscador -->
+        <div class="buscador">
+            <input type="search" placeholder="Buscar...">
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </div>
+
+        <!-- Iconos de usuario y Carrito -->
+        <div class="iconos">
+            <div class="carrito" id="cartIcon">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span class="cart-count" id="cartCount">0</span>
+            </div>
+            <div class="usuario">
+                <i class="fa-solid fa-user"></i></a>
+            </div>
+        </div>
+    </div>
+    <div id="cartModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Detalle del Carrito</h2>
+            <p>Aquí se mostrarán los productos que estás comprando.</p>
+            <p><a href="../public/productCart">ir al carrito de compras</a></p>
+        </div>
+    </div>
+</header>

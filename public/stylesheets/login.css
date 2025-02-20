@@ -1,9 +1,9 @@
 /* General */
-body {
+.login-page-body {
   height: 100vh;
   margin: 0;
   font-family: Arial, sans-serif;
-  background-image: url('../images/fondo 1 libros.jpg');
+  background-image: url('../images/fondo\ 1\ libros.jpg-');
   background-repeat: no-repeat;
   background-size: cover;
   display: flex;

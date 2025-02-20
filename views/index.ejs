@@ -1,11 +1,95 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-  </body>
+
+<%- include('./partials/head') %>
+
+<body>
+    
+    <%- include('./partials/header')%>
+
+    <main>
+      <!-- Banner -->
+      <section class="banner">
+          <ul>
+              <li><img src="images/Banner/Banner 1.png" alt="Banner 1"></li>
+              <li><img src="images/Banner/Banner 2.png" alt="Banner 2"></li>
+              <li><img src="images/Banner/Banner 3.png" alt="Banner 3"></li>
+          </ul>
+          
+      </section>
+
+      <section class="productos-destacados">
+        <h2>Populares</h2>
+        <div class="populares">
+            <% let books = [
+                { id: 1, name:"A través de mi ventana", price: 15.99, image: "images/Libro A traves de mi ventana.jpeg" },
+                { id: 2, name:"After", price: 15.99, image: "images/Libro After.jpg" },
+                { id: 3, name:"Atlantis", price: 15.99, image: "images/Libro Atlantis.jpg" },
+                { id: 4, name:"El final del Viaje", price: 15.99, image: "images/Libro El final del Viaje.jpg" },
+                { id: 5, name:"Almas Perdidas", price: 15.99, image: "images/Libro Almas Perdidas I.png" }
+            ]; %>
+    
+            <% books.forEach(book => { %>
+                <div class="popular">
+                    <a href="/producto/<%= book.id %>">
+                        <img src="<%= book.image %>" alt="<%= book.name %>">
+                    </a>
+                    <figcaption><%= book.name %> - $<%= book.price %></figcaption>
+                </div>
+            <% }); %>
+        </div>
+    </section>
+    
+
+      <section class="info-productos">
+          <div class="info1">
+              <img src="images/Libro El pasado nunca nos olvida.jpg" alt="Libro El pasado nunca nos olvida">
+              <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Placeat sint perspiciatis quae deserunt laborum, amet omnis modi fugit? Sit, minus natus a ipsam nam repudiandae, ipsum esse nisi itaque, maxime iste! Modi esse dicta voluptatum libero quasi nam cum eius illum, mollitia possimus non earum, cumque perspiciatis nisi dolorum recusandae, facilis magnam voluptates? Id obcaecati ipsam distinctio dicta nam molestiae labore, culpa quod voluptatem hic aliquam, quasi fuga aliquid, excepturi harum quos quidem vel ea vero ex minima expedita. Ab deserunt facilis est? Labore consectetur cumque quam fugit! Excepturi nemo fuga quaerat deleniti. Qui quam fugit suscipit placeat tempora iste voluptates, quo laborum, fugiat odio aut corrupti distinctio veritatis sequi! Quaerat eaque dignissimos magni quisquam animi sit a maxime sed provident, quas excepturi tempore enim mollitia voluptatibus quam consectetur ipsum veniam saepe praesentium ratione architecto aspernatur cupiditate expedita. Consectetur repudiandae voluptas inventore, magnam itaque fuga delectus sed suscipit beatae accusamus?</p>
+          </div>
+          <div class="info2">
+              <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste accusantium officiis quisquam a quod odio, recusandae omnis repellat, quis natus incidunt vel nostrum! Tenetur illo vel obcaecati culpa accusantium magnam? Beatae aut magni, cupiditate neque quis distinctio reprehenderit architecto perspiciatis voluptatibus tempora fugit hic non eos quibusdam incidunt, inventore perferendis? Quis corporis quibusdam mollitia commodi? Sit voluptas repellat officiis repudiandae.</p>
+              <img src="images/Libro Finalmente soy yo.jpg" alt="Libro Finalmente soy yo">
+          </div>
+      </section>
+
+
+      <section class="superventas">
+          <h2>Super Ventas</h2>
+
+          <div class="productos">
+            
+              <div class="producto">
+                <img src="images/Libro Harry Potter y la piedra filosofal.jpg" alt="Producto 1">
+                  <div class="overlay">Agregar al carrito</div>
+              </div>
+              
+              <div class="producto">
+                  <img src="images/Libro La Historia de Rondha.jpg" alt="Producto 2" alt="Producto 2">
+                  <div class="overlay">Agregar al carrito</div>
+              </div>
+            
+              <div class="producto">
+                  <img src="images/Libro Las Mil y una Noches.jpg" alt="Producto 3">
+                  <div class="overlay">Agregar al carrito</div>
+              </div>
+            
+              <div class="producto">
+                <img src="images/Libro Los Hombres del Norte.jpg" alt="Producto 4" alt="Producto 4">
+                  <div class="overlay">Agregar al carrito</div>
+              </div>
+            
+              <div class="producto">
+                  <img src="images/Portada Ugly Love.jpeg" alt="Producto 5" alt="Producto 5">
+                  <div class="overlay">Agregar al carrito</div>
+              </div>
+     
+          </div>
+      </section>
+  </main>
+  
+  <%- include('./partials/footer')%>
+  
+  <script src="javascripts/index.js"></script>
+  
+</body>
 </html>

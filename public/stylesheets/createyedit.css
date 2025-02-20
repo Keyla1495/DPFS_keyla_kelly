@@ -150,7 +150,6 @@ header .container {
   background-color: #3B3B58;
   color: #FFFFFF;
 }
-
 /* Estilo del Modal */
 .modal {
   display: none; 
@@ -214,205 +213,53 @@ header .container {
   display: none;
 }
 
-/* ---------------------------- */
-
-/* MAIN */
-/* Banner */
-.banner {
-  width: calc(100% - 0px); /* Restamos 20px para crear espacio a los lados */
-  height: 100%;
-  margin: 0 auto;
-  overflow: hidden;
-}
-
-.banner ul {
-  display: flex;
-  padding: 0;
-  margin: 0;
-  width: 300%; /* Tres imágenes = 300% */
-  animation: slide 15s infinite alternate ease-in-out; /* Ajusta duración */
-}
-
-.banner li {
-  width: 100%; /* Cada imagen ocupa 100% del contenedor */
-  list-style: none;
-}
-
-.banner img {
-  width: 100%;
-  display: block;
-}
-
-/* Animación de Banner */
-@keyframes slide {
-  0%, 20% { margin-left: 0; }      
-  25%, 45% { margin-left: -100%; } 
-  50%, 70% { margin-left: -200%; } 
-}
-
-/* Productos Destacados (Populares) */
-.productos-destacados h2 {
-  font-size: 36px;
-  color: #3B3B58;
-  margin-bottom: 40px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 3px;
-  text-align: start; 
-}
-
-.productos-destacados {
-  margin-top: 40px;
+/***************** MAIN *****************/
+main {
+  max-width: 600px;
+  margin: 20px auto;
   padding: 20px;
-  background-color: #FFFFFF;
-  text-align: center;
-  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.15);
-  border-radius: 15px; /* Bordes más suaves */
-  max-width: 1400px; /* Ancho máximo */
-  margin-left: auto; 
-  margin-right: auto; /* Centrado */
-}
-
-/* Contenedor de los productos */
-.populares {
-  display: flex;
-  flex-wrap: wrap; /* Permite ajuste dinámico */
-  justify-content: center; /* Alineación centrada */
-  gap: 20px; /* Espaciado entre productos */
-}
-
-/* Cada producto */
-.popular {
-  max-width: 200px;
-  background-color: #F3F1E5;
-  border-radius: 15px;
-  margin: 10px;
-  padding: 15px;
-  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15);
-  overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
-}
-
-figcaption{
-  font-size: 15px;
-  margin-top: 10px;
-  padding-top: 12px;
-  text-align: center;
-}
-
-/* Imagen del producto destacados */
-.popular img {
-  width: 100%;
-  height: 220px;
-  object-fit: cover; /* Asegura que la imagen se vea bien */
-  border-top-left-radius: 15px;
-  border-top-right-radius: 15px;
-  transition: transform 0.3s ease;
-}
-
-.popular:hover img {
-  transform: scale(1.1); /* Zoom sutil */
-}
-
-/* Informacion de Productos */
-
-.info-productos {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  background-color: #FFFFFF;
-  margin: 30px auto;
-  border-radius: 15px;
-  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
-  padding: 30px;
-}
-
-.info1 img, .info2 img {
-  max-width: 100%; /* Se ajusta al tamaño del contenedor */
-  width: 100%;
-  border-radius: 15px;
-  padding: 10px;
-  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
-}
-
-.info1, .info2 {
-  width: 100%;
-  max-width: 500px; /* Limita el ancho de cada columna */
-  margin-bottom: 20px;
-  text-align: center;
-}
-
-
-.info1 p, .info2 p {
-  width: 100%;
-  font-size: 16px;
-  text-align: justify;
-  line-height: 1.8;
-  margin-top: 20px; /* Espaciado entre el texto y la imagen */
-}
-
-
-/* Seccion de SuperVentas */
-.superventas {
-  padding: 25px;
-  background-color: #ffffff;
-  text-align: center;
-}
-
-.superventas h2 {
-  font-size: 26px;
-  color: #3B3B58;
-  margin-bottom: 20px;
-  text-transform: uppercase;
-}
-
-.productos {
-  display: flex;
-  flex-wrap: wrap; /* Permite ajuste dinámico */
-  justify-content: center; /* Alineación centrada */
-}
-
-.producto {
-  /* caja de imagenes superventas */
-  max-width: 150px;
-  border-radius: 15px;
-  margin: 10px;
-  padding: 15px;
-  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15);
-  position: relative;
-  overflow: hidden;
-}
-
-.producto img {
-  /* imagenes de Superventas */
-  width: 100%;
-  display: flex;
+  background: #FFFFFF;
   border-radius: 10px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease; /* Para un efecto suave al hover */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-.overlay {
-  position: absolute;
-  bottom: 0;
-  left: 0;
+main h2 {
+  text-align: center;
+  color: #3B3B58;
+}
+
+form label {
+  display: block;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+form input, form textarea {
   width: 100%;
-  height: 100%;
-  background: #d4a37341;
-  color:#d4a373;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 14px;
-  font-weight:800;
-  opacity: 0;  /* Oculto por defecto */
-  transition: opacity 0.3s ease-in-out;
+  padding: 8px;
+  margin-top: 5px;
+  border: 1px solid #D4A373;
+  border-radius: 5px;
+  outline: none;
 }
 
-.producto:hover .overlay {
-  opacity: 1; /* Aparece al hacer hover */
+form button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-top: 15px;
+  background-color: #3B3B58;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
 }
 
+form button:hover {
+  background-color: #D4A373;
+  color: #3B3B58;
+}
 
 
 /***************** FOOTER *****************/
@@ -477,25 +324,6 @@ footer {
     display: flex;
     gap: 15px;
     padding: 12px;
-  }
-
-
-  .info-productos {
-    max-width: 1200px; /* Limita el ancho total de la sección */
-    gap: 30px; /* Espaciado entre las secciones de la información */
-  }
-
-  .info1, .info2 {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-
- /* Productos Destacados (Populares) */
-
-  .productos-destacados h2 {
-    text-align: center;
   }
 
 }
