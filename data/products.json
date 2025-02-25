@@ -1,0 +1,92 @@
+[
+    {
+        "id":1,
+        "name":"El Señor de los Anillos",
+        "description":"Un héroe inesperado. Una misión peligrosa. La mayor aventura que jamás te hayan contado. La primera entrega de la trilogía de J. R. R. Tolkien El Señor de los Anillos En la adormecida e idílica Comarca, un joven hobbit recibe un encargo: custodiar el Anillo Único y emprender el viaje para su destrucción en la Grieta del Destino. Acompañado por magos, hombres, elfos y enanos, atravesará la Tierra Media y se internará en las sombras de Mordor, perseguido siempre por las huestes de Sauron, el Señor Oscuro, dispuesto a recuperar su creación para establecer el dominio definitivo del Mal.",
+        "image":"images/Libro El Señor de los Anillos.webp",
+        "category":"Fantasía, acción y aventura",
+        "autor":"J.R.R. Tolkien",
+        "precio": 19.95
+    },
+    {
+        "id":2,
+        "name":"El Diario de Ana Frank",
+        "description":"Biografía del autor Ana Frank fue una niña alemana judía, nació el 12 de junio de 1929 en Frankfurt am Main, Alemania. Sus padres fueron Otto y Edith Frank. Fue una niña alemana de ascendencia judía, su historia se hizo conocida mundialmente porque durante su escondite escribio su diario, el cual, años después se convertiría en uno de los libros más leidos sobre el holocausto y la persecución nazi.",
+        "image":"images/Libro El Diario de Ana Frank.jpg",
+        "category":"Autobiografía",
+        "autor":"Ana Frank",
+        "precio":12.98
+    },
+    {
+        "id":3,
+        "name":"A través de mi Ventana",
+        "description":"Raquel lleva toda la vida loca por Ares, su atractivo y misterioso vecino. Lo observa sin ser vista desde su ventana y es que, muy a su pesar, no han intercambiado ni una triste palabra. Lo que Raquel no sabe es que eso está a punto de cambiar... Ares comenzará a cruzarse en su camino hasta en los lugares más inesperados y descubrirá que, en realidad, Raquel no es la niña inocente que creía. Ahora, Raquel tiene muy claro su objetivo: conseguir que Ares se enamore de ella. Por supuesto, no está dispuesta a perderlo todo por el camino, y mucho menos a sí misma... De Ariana Godoy, la autora de Heist: Cazar o ser cazado, llega este éxito internacional de Wattpad: un magnético juego de seducción que te tendrá atrapado en sus redes, ahora con nuevas escenas sobre los secretos de Ares.",
+        "image":"images/Libro A traves de mi Ventana.jpeg",
+        "category":"Novela Juvenil",
+        "autor":"Ariana Godoy",
+        "precio":17.62
+    },
+    {
+        "id":4,
+        "name":"After",
+        "description":"Tessa Young se enfrenta a su primer año en la universidad. Acostumbrada a una vida estable y ordenada, su mundo se tambalea cuando conoce a Hardin, un chico tan guapo como cruel, inquietante, lleno de tatuajes, y de aparente mala vida. Desde el primer momento se odian. Pertenecen a dos mundos distintos, pero pronto se harán más que amigos y nada volverá a ser igual. Hardin y Tessa deberán enfrentar muchas pruebas para estar juntos. La inocencia, el despertar a la vida, el descubrimiento del sexo… las huellas de un amor tan poderoso como la fuerza del destino. La historia de un amor infinito.",
+        "image":"images/Libro After.jpg",
+        "category":"Novela Juvenil",
+        "autor":"Ana Todd",
+        "precio":16.69
+    },
+    {
+        "id":5,
+        "name":"Piense y Hágase Rico",
+        "description":"¡Sigue los pasos de los gigantes del éxito! Hill dedicó su vida a estudiar la cuestión de qué hace que alguien tenga éxito. Después de analizar el éxito de más de 500 de los mayores triunfadores del siglo XX, su exhaustiva investigación demostró que la esencia del éxito reside en 17 principios que, cuando se usan juntos, sirven como una fórmula infalible para el logro.",
+        "image":"images/Libro Piense y Hágase Rico.jpg",
+        "category":"Empresarial",
+        "autor":"Napoleon Hill",
+        "precio":17.29
+    },
+    { 
+        "id": 6, 
+        "name": "El Pasado Nunca Nos Olvida", 
+        "description":"Un avión de combate desenterrado en las inmediaciones de El Prat, en Barcelona. Un periodista que investiga el asesinato de un amigo. Una policía que regresa al lugar donde pasó su infancia. El hallazgo en los terrenos de El Prat de Llobregat de los restos de un avión de combate alemán accidentado en un vuelo de exhibición en 1940, saca a la luz los restos del fuselaje y los huesos del piloto. Sebastian, periodista de un diario local de El Prat, cubre la noticia con ayuda de su amigo Vidal, técnico del aeropuerto, que le aporta valiosa información. Un año más tarde, le tocará investigar la muerte de su amigo junto a Lorena, una antigua compañera de clase, que trabaja ahora como agente de la Guardia Urbana de Barcelona. Entre los dos indagarán en el pasado de la Caserna de los Carabineros de El Prat de Llobregat y se toparán con un secreto oculto durante décadas.",
+        "image": "images/Libro El pasado nunca nos olvida.jpg",
+        "category":"Ficción, Misterio, Thriller",
+        "autor": "Daniel Jerez", 
+        "precio": 6.75   
+    },
+    { 
+        "id": 7, 
+        "name": "Almas Perdidas I",
+        "description":"Ariana Godoy, una de las grandes autoras del Young Adult, llega con una nueva saga: Almas perdidas. Vampiros y romance... ¡un tándem ganador! Ella es un vampiro convertido. Él es un vampiro purasangre. Ella aún se aferra a su humanidad, él es un asesino frío. Sus mundos son completamente diferentes, son enemigos naturales. ¿Qué pasará cuando sus caminos se crucen? ¿Y si para ella, él es la clave para descubrir la verdad? Ariana Godoy es la autora de la trilogía Hermanos Hidalgo (A través de mi ventana, A través de ti, A través de la lluvia), la saga Darks (Heist y Fleur. Mi desesperada decisión) y Sigue mi voz. Comenzó su carrera en Wattpad, donde tiene más de dos millones de seguidores. Ariana es venezolana, amante del café y de pasar tiempo con su esposo y sus perritos Coqui y Bolix.", 
+        "image": "images/Libro Almas Perdidas I.png", 
+        "category":"Literatura y Novela Juvenil",
+        "autor": "Ariana Godoy", 
+        "precio": 17.62
+    },
+    { 
+        "id": 8, 
+        "name": "El Final del Viaje", 
+        "description":"El final del viaje es la historia de muchos viajes cruzados, físicos, imaginarios y emocionales, que confluyen en el primero a un país extranjero que realiza Elisa, una joven inteligente, imaginativa y provinciana cuya máxima ambición es conocer el ancho mundo. Sus expectativas comienzan a hacerse realidad cuando recibe una beca de estudio en Amberes, hacia donde parte cargada de ilusión. En esa ciudad convive con otras estudiantes españolas y una serie de personas atípicas, según su estándar, entre ellas una joven belga, un indio y un turco, cuya amistad será la llave de entrada a un mundo que combina para ella fantasía y realidad. Su apacible vida de estudiante se ve alterada cuando conoce a Filip. Con él despierta de lo que, hasta entonces, había sido el sueño de Amberes. El paso de Elisa por la ciudad belga se convierte en un peldaño decisivo en el proceso de maduración psicológica y sexual de la joven ingenua y soñadora que inició un viaje en busca de aventuras y experiencias exóticas y se encontró a sí misma. El final del viaje es una novela intimista que llega directa al corazón del lector. ...Todo viaje tiene un final y todo sueño un despertar",
+        "image": "images/Libro El final del Viaje.jpg", 
+        "category":"Novela Intimista",
+        "autor": "Maria Sanz", 
+        "precio": 12.00 
+    },
+    { 
+        "id": 9, 
+        "name": "Boulevard", 
+        "description":"¿Quién dijo que después de la tormenta sale el sol cuando puede haber un rayo? Vuelve el fenómeno literario de mayor éxito de los últimos tiempos en una edición revisada por la autora. Luke y Hasley no corresponden al prototipo de una pareja perfecta: Uno es tormenta y el otro un día soleado. Como si cada uno fuese un cielo. Sin embargo, juntos ponerle nombre a lo que habían creado. Una historia de amor tan única que te marcará para el resto de tus días.",
+        "image": "images/Libro Boulevard.jpg", 
+        "category":"Novela Juvenil",
+        "autor": "Flor M. Salvador", 
+        "precio": 18.95
+    },
+    { 
+        "id": 10, 
+        "name": "Winter", 
+        "description":"jdkfnbknsdfkmnbklsdf",
+        "image": "images/Portada del Libro Winter.jpeg", 
+        "category":"fjdksjdfklgds",
+        "autor": "Marissa Meyer", 
+        "precio": 20.00 
+    }
+]

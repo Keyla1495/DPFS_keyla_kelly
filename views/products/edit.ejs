@@ -10,25 +10,14 @@
 
         <main class="container">
             <h2>Edición de Producto</h2>
-            <form action="" method="POST">
-                <label for="name">Nombre:</label>
-                <input type="text" id="name" name="name" required>
-
-                <label for="description">Descripción:</label>
-                <textarea id="description" name="description" required></textarea>
-
-                <label for="image">Imagen actual:</label>
-                <img src="../../public/images/Libro Almas Perdidas I.png" alt="Imagen del producto" width="100">
-                <input type="file" id="image" name="image" accept="image/*">
-
-                <label for="category">Categoría:</label>
-                <input type="text" id="category" name="category" required>
-
-                <label for="price">Precio:</label>
-                <input type="number" id="price" name="price" value="<price>" required>
-
-                <button type="submit">Actualizar producto</button>
+            <form action="/products/<%= product.id %>?_method=PUT" method="POST">
+                <input type="text" name="name" value="<%= product.name %>" required>
+                <input type="number" name="price" step="0.01" value="<%= product.price %>" required>
+                <textarea name="description"><%= product.description %></textarea>
+                <input type="text" name="image" value="<%= product.image %>">
+                <button type="submit">Actualizar Producto</button>
             </form>
+            
         </main>
 
         <%- include('./partials/footer')%>

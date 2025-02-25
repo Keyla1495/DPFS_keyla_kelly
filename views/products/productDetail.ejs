@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 
-  <%-include("../partials/head") %>
+<%- include('../partials/head', { extraCSS: '<link rel="stylesheet" href="/stylesheets/productDetail.css">' }) %>
 
 <body>
     
@@ -10,13 +10,13 @@
     <main>
         <section class="detalleProducto">
             <div class="imagenDetalle">
-              <img src="<%= product.image %>" alt="<%= product.name %>">
+                <img src="/<%= product.image %>" alt="<%= product.name %>">
             </div>
             <div class="infoProducto">
-                <h1><%= product.name %></h1>
-                <h2 class="autor">Lorem ipsum dolor sit.</h2>
+                <h1 class="titulo"><%= product.name %></h1>
+                <h2 class="autor"><%= product.autor %></h2>
                 <p class="disponibles">Disponibilidad: 4</p>
-                <h2 class="precio">Precio: $<%= product.price %></h2>
+                <h2 class="precio">Precio: $<%= product.precio %></h2>
                 <div class="contador">
                     <button class="contador-btn">-</button>
                     <span class="contador-cantidad">1</span>
@@ -25,16 +25,15 @@
                     <button class="añadirAlCarrito">Añadir al Carrito</button>
                     </div>
                 </div>
-                
             </div>
-           
+
         </section>
         <section>
-        <div class="descripcionProducto">
-            <h2>Descripción del Producto</h2>
-            <p><%= product.description %></p>
-        </div>
-        
+            <div class="descripcionProducto">
+                <h2>Descripción del Producto</h2>
+                <p><%= product.description %></p>
+            </div>
+        </section>
 
         <section class="recomendados">
             <div class="Carrusel">
@@ -59,6 +58,7 @@
               </div>
             </div>
           </section>
+
     </main>
 
     <%- include("../partials/footer") %>

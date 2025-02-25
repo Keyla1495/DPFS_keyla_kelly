@@ -1,81 +1,28 @@
 <!DOCTYPE html>
 <html lang="es">
     
-    <%- include('./partials/head') %>
+<%- include('../partials/head', { extraCSS: '<link rel="stylesheet" href="/stylesheets/libros.css">' }) %>
 
     <body>
         
-        <%- include('./partials/header')%>
-              
+        <%- include('../partials/header')%>
         <main>
             <section id="libros" class="container">
-                <div class="book">
-                    <img src="../../public/images/Libro El Señor de los Anillos.webp" alt="Libro 1">
-                    <h3>El Señor de los Anillos</h3>
-                    <p>Autor: J.R.R. Tolkien</p>
-                    <p class="precio">$ 19.95</p>
-                </div>
-                <div class="book">
-                    <img src="../../public/images/Libro Harry Potter y la piedra filosofal.jpg" alt="Libro 2">
-                    <h3>Harry Potter</h3>
-                    <p>Autor: J.K. Rowling</p>
-                    <p class="precio">$ 11.11</p>
-                </div>
-                <div class="book">
-                    <img src="../../public/images/Libro Boulevard.jpg" alt="Libro 3">
-                    <h3>Boulevard</h3>
-                    <p>Autor: Flor M. Salvador</p>
-                    <p class="precio">$ 16.68</p>
-                </div>
-                <div class="book">
-                    <img src="../../public/images/Libro El Diario de Ana Frank.jpg" alt="Libro 4">
-                    <h3>El Diario de Ana Frank</h3>
-                    <p>Autor: Ana Frank</p>
-                    <p class="precio">$ 12.98</p>
-                </div>
-                <div class="book">
-                    <img src="../../public/images/Libro A traves de mi ventana.jpeg" alt="Libro 5">
-                    <h3>A traves de mi ventana</h3>
-                    <p>Autor: Ariana Godoy</p>
-                    <p class="precio">$ 17.62</p>
-                </div>
-                <div class="book">
-                    <img src="../../public/images/Libro After.jpg" alt="Libro 6">
-                    <h3>After</h3>
-                    <p>Autor: Ana Todd</p>
-                    <p class="precio">$ 16.95</p>
-                </div>
-                <div class="book">
-                    <img src="../../public/images/Libro Almas Perdidas I.png" alt="Libro 7">
-                    <h3>Almas Perdidas I</h3>
-                    <p>Autor: Ariana Godoy</p>
-                    <p class="precio">$17.62 </p>
-                </div>
-                <div class="book">
-                    <img src="../../public/images/Libro El final del Viaje.jpg" alt="Libro 8">
-                    <h3>El final del Viaje</h3>
-                    <p>Autor: Silvia de Holanda</p>
-                    <p class="precio">$ 12.00 </p>
-                </div>
-                <div class="book">
-                    <img src="../../public/images/Libro La Historia de Rondha.jpg" alt="Libro 9">
-                    <h3>La Historia de Rondha</h3>
-                    <p>Autor: Carmen Gonzáles</p>
-                    <p class="precio">$ 12.00</p>
-                </div>
-                <div class="book">
-                    <img src="../../public/images/Portada del Libro Winter.jpeg" alt="Libro 10">
-                    <h3>Winter</h3>
-                    <p>Autor: Marissa Meyer</p>
-                    <p class="precio">$20.00 </p>
-                </div>
+                <% libros.forEach(libro => { %>
+                    <div class="book">
+                        <img src="<%= libro.image %>" alt="<%= libro.name %>">
+                        <h3><%= libro.name %></h3>
+                        <p>Autor: <%= libro.autor || 'Desconocido' %></p>
+                        <p class="precio">$ <%= libro.precio || 0.00 %></p>
+                        <a href="libros/<%= libro.id %>">Ver más</a>
+                    </div>
+                <% }); %>
             </section>
-
         </main>
         
-        <%- include('./partials/footer')%>
+        <%- include('../partials/footer')%>
 
-        <script src="javascripts/menuToggle.js"></script>
+        <script src="/javascripts/menuToggle.js"></script>
 
     </body>
 </html>

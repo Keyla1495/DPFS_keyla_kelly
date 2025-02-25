@@ -17,7 +17,7 @@
   opacity: 0;
 }
 
-.cajaLogin {
+.cajaRegister {
   padding: 30px;
   box-sizing: border-box;
   background-color: #F3F1E5;
@@ -129,7 +129,7 @@ button:hover {
 
 /* Media Queries para diseño responsivo */
 @media (max-width: 768px) {
-  .cajaLogin {
+  .cajaRegister {
     padding: 20px;
     width: 95%; /* Se ajusta a pantallas pequeñas */
   }
