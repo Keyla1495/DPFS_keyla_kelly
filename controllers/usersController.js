@@ -1,21 +1,7 @@
-const fs = require('fs');
-const path = require('path');
+// const fs = require('fs');
+// const path = require('path');
 const bcrypt = require('bcryptjs');
-
-// Ruta del archivo JSON donde se almacenan los usuarios
-const usersFilePath = path.join(__dirname, '../data/users.json');
-
-// Función para leer usuarios
-const readUsers = () => {
-  if (!fs.existsSync(usersFilePath)) return [];
-  const fileContent = fs.readFileSync(usersFilePath, 'utf-8');
-  return fileContent ? JSON.parse(fileContent) : [];
-};
-
-// Función para escribir usuarios
-const writeUsers = (users) => {
-  fs.writeFileSync(usersFilePath, JSON.stringify(users, null, 2), 'utf-8');
-};
+const { User } = require('../models'); // Importamos el modelo User de Sequelize
 
 // Mostrar el formulario de registro
 exports.showRegisterForm = (req, res) => {
@@ -23,23 +9,41 @@ exports.showRegisterForm = (req, res) => {
 };
 
 // Registrar un usuario
-exports.registerUser = (req, res) => {
+exports.registerUser = async (req, res) => {
   const { name, email, password } = req.body;
-  
+
+  // Verificamos si la contraseña está presente
   if (!password) {
     return res.render('users/register', { error: "La contraseña es obligatoria" });
   }
 
+  // Verificamos si el email ya existe
+  const existingUser = await User.findOne({ where: { email } });
+  if (existingUser) {
+    return res.render('users/register', { error: "El correo electrónico ya está registrado" });
+  }
+
+  // Procesamos la imagen (si existe)
   const image = req.file ? req.file.filename : 'default.png';
+
+  // Encriptamos la contraseña
   const hashedPassword = bcrypt.hashSync(password, 10);
 
-  const newUser = { id: Date.now(), name, email, password: hashedPassword, image };
+  // Creamos el nuevo usuario en la base de datos
+  try {
+    const newUser = await User.create({
+      name,
+      email,
+      password: hashedPassword,
+      image
+    });
 
-  const users = readUsers();
-  users.push(newUser);
-  writeUsers(users);
-
-  res.redirect('/users/login');
+    // Redirigimos al formulario de login
+    res.redirect('/users/login');
+  } catch (error) {
+    console.error(error);
+    res.render('users/register', { error: "Error al crear el usuario, intenta nuevamente." });
+  }
 };
 
 // Mostrar el formulario de login
@@ -48,29 +52,38 @@ exports.showLoginForm = (req, res) => {
 };
 
 // Autenticar usuario
-exports.loginUser = (req, res) => {
+exports.loginUser = async (req, res) => {
   const { email, password } = req.body;
-  const users = readUsers();
-  const user = users.find(user => user.email === email);
 
+  // Buscamos al usuario en la base de datos
+  const user = await User.findOne({ where: { email } });
+
+  // Verificamos si el usuario existe y si la contraseña es correcta
   if (!user || !bcrypt.compareSync(password, user.password)) {
     return res.render('users/login', { error: "Credenciales incorrectas" });
   }
 
+  // Creamos una sesión para el usuario autenticado
   req.session.user = user;
+
+  // Redirigimos al perfil del usuario
   res.redirect('/users/profile');
 };
 
 // Mostrar el perfil de usuario
 exports.showProfile = (req, res) => {
+  // Verificamos si el usuario está autenticado
   if (!req.session.user) {
     return res.redirect('/users/login');
   }
+
+  // Mostramos el perfil con los datos del usuario desde la base de datos
   res.render('users/profile', { user: req.session.user });
 };
 
 // Logout de usuario
 exports.logoutUser = (req, res) => {
+  // Destruimos la sesión del usuario
   req.session.destroy();
   res.redirect('/');
 };
