@@ -7,4 +7,5 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Fantasy World' });
 });
 
+
 module.exports = router;

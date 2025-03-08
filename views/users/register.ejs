@@ -1,61 +1,39 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- Estilos -->
-    <link rel="stylesheet" href="/stylesheets/register.css"> 
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Estilos -->
+  <link rel="stylesheet" href="/stylesheets/register.css"> 
 
-    <!-- Iconos FontAwesome -->
-    <script defer src="https://kit.fontawesome.com/ad49d26689.js" crossorigin="anonymous"></script>
+  <!-- Iconos FontAwesome -->
+  <script defer src="https://kit.fontawesome.com/ad49d26689.js" crossorigin="anonymous"></script>
 
-    <!-- Google Fonts (preconnect y carga optimizada) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
-
-   
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
 </head>
 
-
-    <body>
-    <div class="cajaRegister">
-        <form id="formulario" action="/registro" method="POST" novalidate>
-            <h1>Fantasy World</h1>
-            <h3>Bienvenido a Fantasy World</h3>
-            <p>Únete a la aventura, regístrate ahora</p>
-
-            <!-- Caja de Nombre -->
-            <div class="cajaInput">
-                <ion-icon name="person-outline"></ion-icon>
-                <input type="text" id="nombre" placeholder="Ingresa tu Nombre Completo" name="nombre" required aria-label="Nombre completo">
-            </div>
-
-            <!-- Caja de Email -->
-            <div class="cajaInput">
-                <ion-icon name="mail-outline"></ion-icon>
-                <input type="email" id="email" placeholder="Ingresa tu email" name="email" required aria-label="Correo electrónico">
-            </div>
-
-            <!-- Caja de Contraseña -->
-            <div class="cajaInput">
-                <ion-icon name="lock-closed-outline"></ion-icon>
-                <input type="password" id="password" placeholder="Ingresa tu contraseña" name="contraseña" minlength="8" aria-label="Contraseña" required>
-            </div>
-
-            <!-- Botón de Registro -->
-            <button type="submit" class="boton">REGÍSTRATE</button>
-
-            <!-- Advertencias -->
-            <p class="warnings" id="warnings"></p>
-
-            <!-- Enlace a Login -->
-            <p class="cuentaExistente">¿Ya tienes una cuenta? <a href="./login.html">Ingresa aquí</a></p>
-        </form>
-    </div>
-    <script src="../public/javascripts/register.js"></script>
+<body>
+  <div class="cajaRegister">
+    <form action="/users/register" method="POST" enctype="multipart/form-data">
+      <label for="name">Nombre:</label>
+      <input type="text" name="name" id="name" required>
+  
+      <label for="email">Email:</label>
+      <input type="email" name="email" id="email" required>
+  
+      <label for="password">Contraseña:</label>
+      <input type="password" name="password" id="password" required>
+  
+      <label for="image">Foto de perfil:</label>
+      <input type="file" name="profileImage" accept="image/*">
+  
+      <button type="submit">Registrarse</button>
+    </form>
+  </div>
+  <script src="/javascripts/register.js"></script>
 </body>
 </html>
-

@@ -1,55 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <!-- Estilos -->
- 
-  <link rel="stylesheet" href="../../public/stylesheets/login.css">
-  
+  <link rel="stylesheet" href="/stylesheets/login.css">
 
   <!-- Iconos FontAwesome -->
   <script defer src="https://kit.fontawesome.com/ad49d26689.js" crossorigin="anonymous"></script>
 
-  <!-- Google Fonts (preconnect y carga optimizada) -->
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
-
- 
 </head>
 
-
-  <body>
+<body>
   <div class="cajaLogin">
-    <form id="loginForm">
-      <h1>Fantasy World</h1>
-      <h3>Bienvenido a Fantasy World</h3>
-      <p>Usa tu dirección de email para acceder</p>
-
-      <!-- Campo de email -->
-      <div class="cajaInput">
-        <ion-icon name="mail-outline"></ion-icon>
-        <input type="email" id="email" placeholder="Usuario" required>
-      </div>
-
-      <!-- Campo de contraseña -->
-      <div class="cajaInput">
-        <ion-icon name="lock-closed-outline"></ion-icon>
-        <input type="password" id="password" placeholder="Contraseña" required>
-      </div>
-
-      <!-- Botón de enviar -->
-      <button type="submit" class="boton">ACCEDER</button>
-      
-      <!-- Enlaces adicionales -->
-      <p class="contraseñaOlvidada"><a href="/password-reset">¿Has olvidado tu contraseña?</a></p>
-      <p class="sinCuenta">¿No tienes una cuenta? <a href="register.html">Regístrate aquí</a></p>
-      <p id="warnings" class="warnings"></p>
+    <form action="/users/login" method="POST">
+      <label for="email">Email:</label>
+      <input type="email" name="email" id="email" required>
+  
+      <label for="password">Contraseña:</label>
+      <input type="password" name="password" id="password" required>
+  
+      <button type="submit">Ingresar</button>
     </form>
   </div>
-  <script src="../public/javascripts/login.js"></script>
+  <script src="/javascripts/login.js"></script>
 </body>
 </html>

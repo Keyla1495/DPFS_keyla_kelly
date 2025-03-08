@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>Perfil de Usuario</title>
+</head>
+<body>
+    <h1>Bienvenido, <%= user.name %>!</h1>
+    <p>Email: <%= user.email %></p>
+    <img src="/images/users/<%= user.image %>" alt="Foto de perfil">
+    <a href="/">Home</a>
+    <a href="/users/logout">Cerrar sesión</a>
+</body>
+</html>
