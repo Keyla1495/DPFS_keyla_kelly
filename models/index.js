@@ -1,43 +1,41 @@
-'use strict';
+const { Sequelize } = require('sequelize');
+const sequelize = require('../database/config'); // Asegúrate de que la ruta a la base de datos sea correcta
 
-const fs = require('fs');
-const path = require('path');
-const Sequelize = require('sequelize');
-const process = require('process');
-const basename = path.basename(__filename);
-const env = process.env.NODE_ENV || 'development';
-const config = require(__dirname + '/../config/config.json')[env];
-const db = {};
+// Importación de los modelos
+const Category = require('./Category');
+const Autor = require('./Autor');
+const User = require('./user');
+const Product = require('./product');
+const Order = require('./Order');
 
-let sequelize;
-if (config.use_env_variable) {
-  sequelize = new Sequelize(process.env[config.use_env_variable], config);
-} else {
-  sequelize = new Sequelize(config.database, config.username, config.password, config);
-}
 
-fs
-  .readdirSync(__dirname)
-  .filter(file => {
-    return (
-      file.indexOf('.') !== 0 &&
-      file !== basename &&
-      file.slice(-3) === '.js' &&
-      file.indexOf('.test.js') === -1
-    );
-  })
-  .forEach(file => {
-    const model = require(path.join(__dirname, file))(sequelize, Sequelize.DataTypes);
-    db[model.name] = model;
-  });
+// Establecer relaciones entre los modelos
 
-Object.keys(db).forEach(modelName => {
-  if (db[modelName].associate) {
-    db[modelName].associate(db);
+// Relación entre Product y Category (Un producto pertenece a una categoría)
+Product.belongsTo(Category, { foreignKey: 'categoryId' });
+Category.hasMany(Product, { foreignKey: 'categoryId' });
+
+// Relación entre Product y Autor (Un producto tiene un autor)
+Product.belongsTo(Autor, { foreignKey: 'autorId' });
+Autor.hasMany(Product, { foreignKey: 'autorId' });
+
+// Relación entre Order y User (Una orden pertenece a un usuario)
+Order.belongsTo(User, { foreignKey: 'userId' });
+User.hasMany(Order, { foreignKey: 'userId' });
+
+// Relación entre Order y Product (Una orden puede tener varios productos)
+Order.belongsToMany(Product, { through: 'OrderProducts', foreignKey: 'orderId' });
+Product.belongsToMany(Order, { through: 'OrderProducts', foreignKey: 'productId' });
+
+
+// Sincroniza los modelos con la base de datos
+(async () => {
+  try {
+    await sequelize.sync({ force: false }); // Usa `force: true` para eliminar tablas existentes (solo en desarrollo)
+    console.log('Tablas sincronizadas con éxito');
+  } catch (error) {
+    console.error('Error al sincronizar las tablas:', error);
   }
-});
+})();
 
-db.sequelize = sequelize;
-db.Sequelize = Sequelize;
-
-module.exports = db;
+module.exports = { sequelize, Category, Autor, User, Product, Order };

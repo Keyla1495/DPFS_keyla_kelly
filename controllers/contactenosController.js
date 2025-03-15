@@ -1,7 +1,7 @@
 const contactController = {
     // Método para renderizar la página de contacto
     showForm: (req, res) => {
-        res.render('contactenos'); // Asegúrate de que el archivo se llama "contactenos.ejs" y está en "views/"
+        res.render('contactenos', { title: 'Contáctenos' }); // Asegúrate de que el archivo se llama "contactenos.ejs" y está en "views/"
     },
 
     // Método para procesar el formulario

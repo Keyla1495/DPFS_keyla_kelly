@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const path = require('path');
 const fs = require('fs');
+const { title } = require('process');
 
 // Ruta para mostrar los libros
 router.get('/', (req, res) => {
@@ -12,7 +13,7 @@ router.get('/', (req, res) => {
         }
 
         const libros = JSON.parse(data); // Convertimos el JSON a objeto JavaScript
-        res.render('products/libros', { libros }); // Renderizamos la vista pasando los libros
+        res.render('products/libros', { libros, title: "Libros" }); // Renderizamos la vista pasando los libros
     });
 });
 // Ruta para mostrar un libro específico por ID
@@ -32,7 +33,7 @@ router.get('/:id', (req, res) => {
             return res.status(404).send('Libro no encontrado'); // Manejar error si no existe
         }
 
-        res.render('products/productDetail', { product }); // Enviar 'product' a la vista
+        res.render('products/productDetail', { product, title: "Detalle del Producto" }); // Enviar 'product' a la vista
     });
 });
 
@@ -40,9 +41,3 @@ router.get('/:id', (req, res) => {
 
 
 module.exports = router;
-
-
-
-
-
-

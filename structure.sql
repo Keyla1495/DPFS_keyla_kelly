@@ -1,43 +1,70 @@
-CREATE DATABASE fantasy_world;
-USE fantasy_world;
+CREATE DATABASE Libreria_FW;
 
-CREATE TABLE Categorias (
-    Categoria_id INT AUTO_INCREMENT PRIMARY KEY,
-    Categoria VARCHAR(255) NOT NULL
-);
+USE Libreria_FW;
 
-CREATE TABLE Autores (
-    ID INT AUTO_INCREMENT PRIMARY KEY,
-    Nombre VARCHAR(255) NOT NULL
-);
-
-
-CREATE TABLE ProductCategorias (
-    ProductCateg_id INT AUTO_INCREMENT PRIMARY KEY,
-    Nombre VARCHAR(255) NOT NULL
-);
-
-
+-- Tabla Usuarios
 CREATE TABLE Usuarios (
-    ID INT AUTO_INCREMENT PRIMARY KEY,
-    Nombre VARCHAR(25) NOT NULL,
-    Apellido VARCHAR(25) NOT NULL,
-    Email VARCHAR(255) UNIQUE NOT NULL,
-    Contraseña VARCHAR(255) NOT NULL,
-    Categoria_id INT,
-    Imagen VARCHAR(255),
-    FOREIGN KEY (Categoria_id) REFERENCES Categorias(Categoria_id)
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(255) NOT NULL,
+    email VARCHAR(255) UNIQUE NOT NULL,
+    contraseña VARCHAR(255) NOT NULL,
+    fecha_registro DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Tabla Productos
+CREATE TABLE Productos (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(255) NOT NULL,
+    descripcion TEXT,
+    precio DECIMAL(10,2) NOT NULL,
+    stock INT NOT NULL,
+    imagen VARCHAR(255)
+);
+
+-- Tabla Categorías
+CREATE TABLE Categorias (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(255) NOT NULL
+);
+
+-- Tabla Marcas
+CREATE TABLE Marcas (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(255) NOT NULL
 );
 
 
-CREATE TABLE Productos (
-    ID INT AUTO_INCREMENT PRIMARY KEY,
-    Nombre VARCHAR(255) NOT NULL,
-    Descripcion TEXT,
-    Imagen VARCHAR(255),
-    ProductCateg_id INT,
-    AutorID INT,
-    Precio DECIMAL(10, 2),
-    FOREIGN KEY (ProductCateg_id) REFERENCES ProductCategorias(ProductCateg_id),
-    FOREIGN KEY (AutorID) REFERENCES Autores(ID)
+
+-- Tabla Talles
+CREATE TABLE Talles (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(255) NOT NULL
+);
+
+-- Relación Producto-Categoría (Muchos a Muchos)
+CREATE TABLE Producto_Categoria (
+    producto_id INT,
+    categoria_id INT,
+    PRIMARY KEY (producto_id, categoria_id),
+    FOREIGN KEY (producto_id) REFERENCES Productos(id),
+    FOREIGN KEY (categoria_id) REFERENCES Categorias(id)
+);
+
+-- Tabla Carrito de Compras
+CREATE TABLE Carritos (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    usuario_id INT,
+    total DECIMAL(10,2),
+    FOREIGN KEY (usuario_id) REFERENCES Usuarios(id)
+);
+
+-- Relación Producto-Carrito (Muchos a Muchos)
+CREATE TABLE Carrito_Producto (
+    carrito_id INT,
+    producto_id INT,
+    cantidad INT,
+    precio DECIMAL(10,2),
+    PRIMARY KEY (carrito_id, producto_id),
+    FOREIGN KEY (carrito_id) REFERENCES Carritos(id),
+    FOREIGN KEY (producto_id) REFERENCES Productos(id)
 );

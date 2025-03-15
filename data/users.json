@@ -43,19 +43,5 @@
     "password": "hE7@<(\"z$o",
     "category": "admin",
     "image": "http://dummyimage.com/250x100.png/cc0000/ffffff"
-  },
-  {
-    "id": 1740594550338,
-    "name": "Keyla Kelly ",
-    "email": "sdfmkdsf@ddgfdf.com",
-    "password": "$2b$10$2xIe8cGDBxRtL8zzrlHf5uF095U0zw3uiTgjL1ihcTdTGf5TVknDS",
-    "image": "1740594550097.png"
-  },
-  {
-    "id": 1740626040169,
-    "name": "Mirta Periñan",
-    "email": "ksdfkos@mail.com",
-    "password": "$2b$10$Y4OMss5Vl0kRplycwdvw7uOZ0IlrOhtu3MnXlnf6/X4TmexHBKQ22",
-    "image": "1740626040055.png"
   }
 ]

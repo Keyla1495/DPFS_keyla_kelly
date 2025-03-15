@@ -1,23 +1,17 @@
-'use strict';
-const {
-  Model
-} = require('sequelize');
-module.exports = (sequelize, DataTypes) => {
-  class Product extends Model {
-    static associate(models) {
-      // define associations here (si las necesitas)
-    }
-  }
-  Product.init({
-    name: DataTypes.STRING,
-    description: DataTypes.STRING,
-    category: DataTypes.STRING,
-    autor: DataTypes.STRING,
-    precio: DataTypes.DECIMAL,
-    image: DataTypes.STRING
-  }, {
-    sequelize,
-    modelName: 'Product',
-  });
-  return Product;
-};
+const { Sequelize, DataTypes } = require('sequelize');
+const sequelize = require('../database/config');
+
+const Autor = sequelize.define('Autor', {
+  name: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  bio: {
+    type: DataTypes.TEXT,
+  },
+}, {
+  timestamps: true,
+  tableName: 'autors',  // Nombre de la tabla en la base de datos
+});
+
+module.exports = Autor;

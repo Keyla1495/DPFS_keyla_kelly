@@ -8,7 +8,9 @@
   "dependencies": {
     "bcryptjs": "^3.0.2",
     "cookie-parser": "~1.4.4",
+    "cors": "^2.8.5",
     "debug": "~2.6.9",
+    "dotenv": "^16.4.7",
     "ejs": "^3.1.10",
     "express": "^4.21.2",
     "express-session": "^1.18.1",
@@ -17,10 +19,19 @@
     "http-errors": "~1.6.3",
     "method-override": "^3.0.0",
     "morgan": "~1.9.1",
+    "mssql": "^11.0.1",
     "multer": "^1.4.5-lts.1",
     "mysql2": "^3.13.0",
     "sequelize": "^6.37.6",
     "sequelize-cli": "^6.6.2",
     "tedious": "^18.6.1"
+  },
+  "description": "Bienvenidos a Fantasy World, la librería online donde los sueños y las aventuras cobran vida. Especializada en literatura fantástica, aquí encontrarás desde los grandes clásicos del género hasta las últimas novedades que te transportarán a universos mágicos, reinos encantados, y epopeyas inolvidables. Nuestra tienda es el hogar de historias que alimentan la imaginación y despiertan el espíritu aventurero. Ya seas un lector veterano de fantasía o un explorador novato, Fantasy World es tu portal hacia lo extraordinario. ¡Prepárate para descubrir mundos más allá de la realidad con solo un clic!.",
+  "main": "app.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^3.1.9"
   }
 }
