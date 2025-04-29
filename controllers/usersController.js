@@ -1,6 +1,7 @@
 const bcrypt = require('bcryptjs');
 const fs = require('fs');
 const path = require('path');
+const { validationResult } = require('express-validator');
 const usersFilePath = path.join(__dirname, '../data/users.json');
 
 // Función para leer los usuarios desde el archivo
@@ -18,6 +19,7 @@ const readUsers = () => {
 const saveUsers = (users) => {
   try {
     fs.writeFileSync(usersFilePath, JSON.stringify(users, null, 2));
+    console.log("Usuarios guardados correctamente:", users);
   } catch (err) {
     console.error("Error al guardar el archivo de usuarios:", err);
   }
@@ -30,42 +32,50 @@ exports.showRegisterForm = (req, res) => {
 
 // Registrar un nuevo usuario
 exports.registerUser = (req, res) => {
-  const { name, email, password } = req.body;
+  const { name, email, password, category } = req.body;
 
-  // Verificar si los campos están vacíos
   if (!name || !email || !password) {
     return res.redirect('/users/register');
   }
 
-  // Encriptar la contraseña
+  const errors = validationResult(req);
+  console.log(errors.array());
+
+  if (!errors.isEmpty()) {
+    return res.render('users/register', {
+      errors: errors.mapped(),
+      oldData: req.body,
+    });
+  }
+
   bcrypt.hash(password, 10, (err, hashedPassword) => {
     if (err) {
       console.error("Error al encriptar la contraseña:", err);
       return res.redirect('/users/register');
     }
 
-    // Crear el nuevo usuario
+    const users = readUsers();
+
+    // Verificar si el correo ya está registrado
+    if (users.some(user => user.email === email)) {
+      return res.redirect('/users/register');
+    }
+
+    // Generar un nuevo ID único
+    const newId = users.length > 0 ? Math.max(...users.map(user => user.id)) + 1 : 1;
+
     const newUser = {
+      id: newId,
       name,
       email,
       password: hashedPassword,
-      profileImage: req.file ? req.file.filename : 'default.jpg', // Imagen de perfil, si la hay
+      category: category || 'user',
+      profileImage: req.file ? req.file.filename : 'default.jpg',
     };
 
-    // Leer los usuarios actuales
-    const users = readUsers();
-    // Verificar si el correo ya está registrado
-    if (users.some(user => user.email === email)) {
-      return res.redirect('/users/register'); // Si ya existe un usuario con ese email, redirige
-    }
-
-    // Agregar el nuevo usuario al archivo
     users.push(newUser);
-
-    // Guardar el usuario en el archivo
     saveUsers(users);
 
-    // Redirigir al login
     res.redirect('/users/login');
   });
 };
@@ -79,9 +89,9 @@ exports.showLoginForm = (req, res) => {
 exports.loginValidation = (req, res, next) => {
   const { email, password } = req.body;
   if (!email || !password) {
-    return res.redirect('/users/login'); // Si faltan campos, redirige al login
+    return res.redirect('/users/login');
   }
-  next(); // Si los campos están completos, pasa al siguiente middleware
+  next();
 };
 
 // Iniciar sesión
@@ -92,49 +102,80 @@ exports.loginUser = (req, res) => {
   const user = users.find(u => u.email === email);
 
   if (!user) {
-    return res.redirect('/users/login'); // Si no se encuentra el usuario, redirige al login
+    return res.redirect('/users/login');
   }
 
-  // Verificar la contraseña
   bcrypt.compare(password, user.password, (err, result) => {
     if (err || !result) {
-      return res.redirect('/users/login'); // Si hay error o la contraseña no coincide, redirige al login
+      return res.redirect('/users/login');
     }
 
-    // Crear una sesión para el usuario
-    req.session.user = user;
-    res.redirect('/users/profile'); // Redirige al perfil
+    req.session.user = {
+      id: user.id,
+      name: user.name,
+      email: user.email,
+      category: user.category,
+      profileImage: user.profileImage
+    };
+
+    if (user.category === 'admin') {
+      res.redirect('/users/admin');
+    } else {
+      res.redirect('/users/profile');
+    }
   });
 };
 
 // Mostrar el perfil del usuario
 exports.showProfile = (req, res) => {
   if (!req.session.user) {
-    return res.redirect('/users/login'); // Si no hay sesión activa, redirige al login
+    return res.redirect('/users/login');
   }
 
-  res.render('users/profile', { user: req.session.user }); // Muestra el perfil del usuario
+  res.render('users/profile', { user: req.session.user });
 };
 
 // Middleware para verificar si el usuario está autenticado
 exports.isAuthenticated = (req, res, next) => {
   if (!req.session.user) {
-    return res.redirect('/users/login'); // Si no hay sesión, redirige al login
+    return res.redirect('/users/login');
   }
-  next(); // Si hay sesión, continúa con la siguiente función
+  next();
 };
 
+// Middleware para verificar si es admin
+exports.isAdmin = (req, res, next) => {
+  if (req.session.user && req.session.user.category === 'admin') {
+    return next();
+  }
+  return res.redirect('/');
+};
 
+// Función para eliminar un usuario
+exports.deleteUser = (req, res) => {
+  const { userId } = req.params;
+
+  const users = readUsers();
+
+  const updatedUsers = users.filter(user => user.id !== Number(userId));
+
+  if (users.length === updatedUsers.length) {
+    return res.status(404).send('Usuario no encontrado');
+  }
+
+  saveUsers(updatedUsers);
+
+  res.redirect('/users/admin');
+};
 
 // Función para cerrar sesión
 exports.logoutUser = (req, res) => {
-  // Eliminar la sesión del usuario
   req.session.destroy((err) => {
     if (err) {
       console.error("Error al cerrar sesión:", err);
-      return res.redirect('/users/profile'); // Si ocurre un error, redirigir al perfil
+      return res.redirect('/users/profile');
     }
-    res.clearCookie('connect.sid'); // Limpiar la cookie de sesión
-    res.redirect('/users/login'); // Redirigir al login después de cerrar sesión
+    res.clearCookie('connect.sid');
+    res.redirect('/users/login');
   });
 };

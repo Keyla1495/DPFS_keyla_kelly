@@ -4,11 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <!-- Estilos -->
+    <link rel="stylesheet" href="/stylesheets/perfil.css"> 
+    
+    <!-- Iconos FontAwesome -->
+    <script defer src="https://kit.fontawesome.com/ad49d26689.js" crossorigin="anonymous"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    
+    <title>Bienvenido <%= user.name %> </title>
+
 </head>
 <body>
     
     <h1>Bienvenido, <%= user.name %></h1>
     <img src="/images/users/<%= user.profileImage %>" alt="Imagen de perfil" />
+    <a href="/">Ir a Inicio</a> |
     <a href="/users/logout">Cerrar sesión</a>
 
     

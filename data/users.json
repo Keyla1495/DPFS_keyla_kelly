@@ -43,5 +43,13 @@
     "password": "hE7@<(\"z$o",
     "category": "admin",
     "image": "http://dummyimage.com/250x100.png/cc0000/ffffff"
+  },
+  {
+    "id": 6,
+    "name": "Jose Valencia",
+    "email": "jvalencia@gmail.com",
+    "password": "$2b$10$4DLlrwG9hOo7/CwrhKEtd.pzTV10T1Fpsgd.eH6x69KrJiDvnbfTi",
+    "category": "user",
+    "profileImage": "1745892987252.jpeg"
   }
 ]

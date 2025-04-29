@@ -1,10 +1,20 @@
 const { Sequelize } = require('sequelize');
 
-// Configuración de la base de datos (ajusta los datos según tu configuración)
-const sequelize = new Sequelize('fantasyworld_db', 'Libreria_FW', 'root', {
-  host: 'localhost',
-  dialect: 'mysql', 
-  logging: false, // Para desactivar los logs de SQL en la consola
+// Configura con tus datos correctos
+const sequelize = new Sequelize('tienda', 'root', 'tu_contraseña', {
+    host: 'localhost',
+    dialect: 'mysql',
+    logging: false, // Esto es opcional, para desactivar los logs de las consultas SQL
 });
 
-module.exports = sequelize; 
+async function connect() {
+    try {
+        // Intenta autenticar la conexión a la base de datos
+        await sequelize.authenticate();
+        console.log('Conexión establecida correctamente.');
+    } catch (error) {
+        console.error('No se pudo conectar a la base de datos:', error);
+    }
+}
+
+module.exports = { sequelize, connect };

@@ -1,70 +1,33 @@
-CREATE DATABASE Libreria_FW;
+-- Active: 1744602276772@@127.0.0.1@3306@tienda
+CREATE DATABASE tienda;
 
-USE Libreria_FW;
+USE tienda;
 
--- Tabla Usuarios
-CREATE TABLE Usuarios (
+CREATE TABLE users (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    nombre VARCHAR(255) NOT NULL,
-    email VARCHAR(255) UNIQUE NOT NULL,
-    contraseña VARCHAR(255) NOT NULL,
-    fecha_registro DATETIME DEFAULT CURRENT_TIMESTAMP
+    name VARCHAR(100) NOT NULL,
+    email VARCHAR(100) UNIQUE NOT NULL,
+    password VARCHAR(100) NOT NULL,
+    role VARCHAR(50) DEFAULT 'user',
+    createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
 
--- Tabla Productos
-CREATE TABLE Productos (
+CREATE TABLE categories (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    nombre VARCHAR(255) NOT NULL,
-    descripcion TEXT,
-    precio DECIMAL(10,2) NOT NULL,
-    stock INT NOT NULL,
-    imagen VARCHAR(255)
+    name VARCHAR(50) NOT NULL,
+    createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
 
--- Tabla Categorías
-CREATE TABLE Categorias (
+CREATE TABLE products (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    nombre VARCHAR(255) NOT NULL
-);
-
--- Tabla Marcas
-CREATE TABLE Marcas (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    nombre VARCHAR(255) NOT NULL
-);
-
-
-
--- Tabla Talles
-CREATE TABLE Talles (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    nombre VARCHAR(255) NOT NULL
-);
-
--- Relación Producto-Categoría (Muchos a Muchos)
-CREATE TABLE Producto_Categoria (
-    producto_id INT,
-    categoria_id INT,
-    PRIMARY KEY (producto_id, categoria_id),
-    FOREIGN KEY (producto_id) REFERENCES Productos(id),
-    FOREIGN KEY (categoria_id) REFERENCES Categorias(id)
-);
-
--- Tabla Carrito de Compras
-CREATE TABLE Carritos (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    usuario_id INT,
-    total DECIMAL(10,2),
-    FOREIGN KEY (usuario_id) REFERENCES Usuarios(id)
-);
-
--- Relación Producto-Carrito (Muchos a Muchos)
-CREATE TABLE Carrito_Producto (
-    carrito_id INT,
-    producto_id INT,
-    cantidad INT,
-    precio DECIMAL(10,2),
-    PRIMARY KEY (carrito_id, producto_id),
-    FOREIGN KEY (carrito_id) REFERENCES Carritos(id),
-    FOREIGN KEY (producto_id) REFERENCES Productos(id)
+    name VARCHAR(100) NOT NULL,
+    description TEXT NOT NULL,
+    price DECIMAL(10,2) NOT NULL,
+    image VARCHAR(255),
+    category_id INT,
+    createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    FOREIGN KEY (category_id) REFERENCES categories(id)
 );

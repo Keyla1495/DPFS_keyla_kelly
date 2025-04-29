@@ -10,13 +10,14 @@
     <main>
         <section class="detalleProducto">
             <div class="imagenDetalle">
-                <img src="/uploads/<%= product.image %>" alt="<%= product.name %>">
+              <img src="/uploads/<%= product.image %>" alt="<%= product.nombre %>">
             </div>
             <div class="infoProducto">
-                <h1 class="titulo"><%= product.name %></h1>
-                <h2 class="autor"><%= product.autor %></h2>
-                <p class="disponibles">Disponibilidad: 4</p>
-                <h2 class="precio">Precio: $<%= product.precio %></h2>
+              <h1 class="titulo"><%= product.name %></h1>
+              <h2 class="autor"><%= product.autor %></h2>
+              <p class="disponibles">Disponibilidad: 4</p>
+              <h2 class="precio">Precio: $<%= product.precio %></h2>
+             
                 <div class="contador">
                     <button class="contador-btn">-</button>
                     <span class="contador-cantidad">1</span>
@@ -31,7 +32,7 @@
         <section>
             <div class="descripcionProducto">
                 <h2>Descripción del Producto</h2>
-                <p><%= product.description %></p>
+                <p class="descripcionProducto"><%= product.description %></p>
             </div>
         </section>
 

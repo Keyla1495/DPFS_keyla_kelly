@@ -243,6 +243,10 @@ form input, form textarea {
   outline: none;
 }
 
+form select{
+  width: 60px;
+}
+
 form button {
   display: block;
   width: 100%;

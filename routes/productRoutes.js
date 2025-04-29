@@ -1,45 +1,27 @@
 const express = require('express');
 const router = express.Router();
 const productController = require('../controllers/productController');
-
-const multer = require('multer');
-const path = require('path');
-
-// Configuración de multer para guardar imágenes en la carpeta 'uploads'
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, path.join(__dirname, '../uploads')); // Usar la carpeta 'uploads'
-  },
-  filename: (req, file, cb) => {
-    cb(null, Date.now() + path.extname(file.originalname)); // Renombrar archivo para evitar duplicados
-  },
-});
-
-const upload = multer({ storage });
-
+const upload = require('../middlewares/multerConfig');
 
 // Rutas de productos
-router.get('/', productController.listProducts);
+router.get('/', productController.index);
 
-// Ruta para mostrar el formulario de creación de producto
-router.get('/create', productController.showCreateForm);
+// Mostrar formulario de creación
+router.get('/create', productController.createForm);
 
-// Ruta para manejar la creación del producto
-router.post('/create', upload.single('image'), productController.createProduct);
+// Crear producto
+router.post('/create', upload.single('image'), productController.create);
 
-// Ruta para mostrar el formulario de edición de producto
-router.get('/edit/:id', productController.showEditForm);
+// Mostrar formulario de edición
+router.get('/edit/:id', productController.editForm);
 
-// Ruta para manejar la edición del producto
-router.post('/edit/:id', upload.single('image'), productController.editProduct);
+// Actualizar producto
+router.post('/edit/:id', upload.single('image'), productController.update);
 
-// // Ruta para manejar la edición del producto
-// router.post('/edit/:id', upload.single('image'), productController.editProduct);
+// Ver detalles de un producto
+router.get('/:id', productController.detail);
 
-// Ruta para ver los detalles de un producto
-router.get('/:id', productController.showProductDetail);
-
-// Ruta para eliminar un producto
-router.get('/delete/:id', productController.deleteProduct);
+// Eliminar producto
+router.delete('/products/delete/:productId', productController.deleteProduct);
 
 module.exports = router;

@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const path = require('path');
 const fs = require('fs');
-const { title } = require('process');
+// const { title } = require('process');
 
 // Ruta para mostrar los libros
 router.get('/', (req, res) => {
@@ -13,7 +13,7 @@ router.get('/', (req, res) => {
         }
 
         const libros = JSON.parse(data); // Convertimos el JSON a objeto JavaScript
-        res.render('products/libros', { libros, title: "Libros" }); // Renderizamos la vista pasando los libros
+        res.render('products/libros', { products: libros, title: "Libros" }); // Renderizamos la vista pasando los libros
     });
 });
 // Ruta para mostrar un libro específico por ID

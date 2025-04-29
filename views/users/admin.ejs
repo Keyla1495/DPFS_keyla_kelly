@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Panel de Administración</title>
+  <link rel="stylesheet" href="/stylesheets/perfil.css"> 
+</head>
+<body>
+
+  <header>
+    <h1>Bienvenido, <%= user.name %> (Admin)</h1>
+    <nav>
+      <a href="/">Ir a Inicio</a> |
+      <a href="/users/logout">Cerrar sesión</a>
+    </nav>
+  </header>
+
+  <main>
+    <section>
+      <h2>Panel de Control</h2>
+      <ul>
+        <li><a href="/admin/users">Gestionar Usuarios</a></li>
+        <li><a href="/admin/products">Gestionar Productos</a></li>
+        <li><a href="/admin/orders">Gestionar Pedidos</a></li>
+        <a href="http://localhost:5173/">Dashboard</a>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Fantasy World</p>
+  </footer>
+
+</body>
+</html>

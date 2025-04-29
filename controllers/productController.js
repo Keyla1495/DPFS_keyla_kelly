@@ -1,143 +1,113 @@
-const { Product } = require('../models');
-const { Category } = require('../models'); 
+const fs = require('fs');
+const path = require('path');
 
-// Mostrar todos los productos
-exports.listProducts = async (req, res) => {
+const productsFilePath = path.join(__dirname, '../data/products.json');
+
+const readProducts = () => {
   try {
-    const libros = await Product.findAll(); // Obtiene todos los productos de la BD
-    res.render('products/libros', { libros });
+    const data = fs.readFileSync(productsFilePath, 'utf8');
+    return JSON.parse(data);
   } catch (err) {
-    console.error("Error al obtener productos:", err);
-    res.status(500).send('Error al obtener productos');
+    console.error("Error al leer productos:", err);
+    return [];
   }
 };
 
-// Mostrar el formulario de creación
-exports.showCreateForm = (req, res) => {
-  res.render('products/createProduct', {title: 'Creación de Producto'});
+const writeProducts = (data) => {
+  fs.writeFileSync(productsFilePath, JSON.stringify(data, null, 2));
 };
 
-// Crear un nuevo producto
-exports.createProduct = async (req, res) => {
-  try {
-    const { name, description, category, autor, precio } = req.body;
-    const image = req.file ? req.file.filename : null;
+const productController = {
+  // Listar productos
+  index: (req, res) => {
+    const products = readProducts();
+    res.render('products/libros', { products, title: "Libros" });
+  },
 
-    console.log("Categoría recibida:", category);
+  // Ver detalle de producto
+  detail: (req, res) => {
+    const products = readProducts();
+    const product = products.find(p => p.id == req.params.id);
 
-    if (!name || !description || !category || !precio) {
-      return res.status(400).send('Todos los campos son obligatorios');
+    if (!product) {
+      return res.status(404).send('Producto no encontrado');
     }
+    res.render('products/productDetail', { title: 'Detalle del Producto', product });
+  },
 
-    // Buscar la categoría por su nombre
-    const categoryRecord = await Category.findOne({ where: { nombre: category } });
+  // Formulario de creación
+  createForm: (req, res) => {
+    res.render('products/createProduct', { title: 'Crear Producto' });
+  },
 
-    if (!categoryRecord) {
-      console.error("Error: No se encontró la categoría con el nombre:", category);
-      return res.status(400).send(`Categoría "${category}" no encontrada`);
-    }
+  // Guardar nuevo producto
+  create: (req, res) => {
+    const products = readProducts();
+    const newProduct = {
+      id: products.length > 0 ? products[products.length - 1].id + 1 : 1,
+      name: req.body.name,
+      description: req.body.description,
+      precio: parseFloat(req.body.precio),
+      category: req.body.category,
+      autor: req.body.autor || 'Desconocido',
+      image: req.file ? req.file.filename : 'default.jpg'
+    };
 
-    // Crear el producto en la base de datos
-    await Product.create({
-      nombre: name,
-      descripcion: description,
-      productCateg_id: categoryRecord.id, // Ajustar según el nombre real del ID en la BD
-      AutorID: autor,
-      precio: parseFloat(precio),
-      imagen: image,
-    });
+    products.push(newProduct);
+    writeProducts(products);
 
     res.redirect('/libros');
-  } catch (err) {
-    console.error("Error al crear el producto:", err);
-    res.status(500).send('Error al crear el producto');
-  }
-};
+  },
 
+  // Formulario de edición
+  editForm: (req, res) => {
+    const products = readProducts();
+    const product = products.find(p => p.id == req.params.id);
 
-// Mostrar el formulario de edición
-exports.showEditForm = async (req, res) => {
-  try {
-    const product = await Product.findByPk(req.params.id);
     if (!product) {
       return res.status(404).send('Producto no encontrado');
     }
 
-    res.render('products/editProduct', { product, title: 'Edición de Productos' });
-  } catch (err) {
-    console.error("Error al obtener el producto para editar:", err);
-    res.status(500).send('Error al obtener el producto');
-  }
-};
+    res.render('products/editProduct', { title: 'Editar Producto', product });
+  },
 
-// Editar un producto
-exports.editProduct = async (req, res) => {
-  try {
-    const { name, description, category, autor, precio } = req.body;
-    const image = req.file ? req.file.filename : null;
+  // Actualizar producto
+  update: (req, res) => {
+    const products = readProducts();
+    const id = parseInt(req.params.id);
 
-    const product = await Product.findByPk(req.params.id);
-    if (!product) {
-      return res.status(404).send('Producto no encontrado');
-    }
-
-    // Validar y obtener el ID de la categoría
-    const categoryRecord = await Category.findOne({ where: { Categoria: category } });
-    if (!categoryRecord) {
-      return res.status(400).send('Categoría no encontrada');
-    }
-
-    await product.update({
-      nombre: name,
-      descripcion: description,
-      productCateg_id: categoryRecord.Categoria_id,
-      AutorID: autor,
-      precio: parseFloat(precio),
-      imagen: image || product.imagen, // Mantener la imagen anterior si no se sube una nueva
+    const updatedProducts = products.map(p => {
+      if (p.id === id) {
+        return {
+          ...p,
+          name: req.body.name,
+          description: req.body.description,
+          precio: parseFloat(req.body.precio),
+          category: req.body.category,
+          autor: req.body.autor || p.autor,
+          image: req.file ? req.file.filename : p.image
+        };
+      }
+      return p;
     });
 
-    res.redirect('/products');
-  } catch (err) {
-    console.error("Error al actualizar el producto:", err);
-    res.status(500).send('Error al actualizar el producto');
-  }
-};
+    writeProducts(updatedProducts);
+    res.redirect('/libros');
+  },
 
-// Mostrar los detalles de un producto
-exports.showProductDetail = async (req, res) => {
-  try {
-    console.log('ID recibido:', req.params.id);
-    const product = await Product.findByPk(req.params.id); // Buscar el producto por ID
-    
-    if (!product) {
-      return res.status(404).send('Producto no encontrado'); 
-    }
+  // Eliminar producto
+  deleteProduct: (req, res) => {
+    const id = parseInt(req.params.id); // Aseguramos que sea número
+    const products = readProducts();
+    const updatedProducts = products.filter(product => product.id !== id);
 
-    res.render('products/productDetail', { title: 'Detalle del Producto', product }); // Enviar el producto a la vista
-  } catch (err) {
-    console.error("Error al obtener el producto:", err); 
-    res.status(500).send('Error al obtener el producto'); // Enviar un mensaje de error 500 si ocurre un problema
-  }
-};
-
-// Eliminar un producto
-exports.deleteProduct = async (req, res) => {
-  try {
-    const product = await Product.findByPk(req.params.id);
-    if (!product) {
+    if (products.length === updatedProducts.length) {
       return res.status(404).send('Producto no encontrado');
     }
 
-    // Verificar dependencias antes de eliminar el producto
-    // Ejemplo: si el producto está relacionado con órdenes, no permitir su eliminación
-    if (product.orders && product.orders.length > 0) {
-      return res.status(400).send('Este producto tiene órdenes asociadas y no puede ser eliminado');
-    }
-
-    await product.destroy();
-    res.redirect('/products');
-  } catch (err) {
-    console.error("Error al eliminar el producto:", err);
-    res.status(500).send('Error al eliminar el producto');
+    writeProducts(updatedProducts);
+    res.redirect('/products/admin'); // O donde quieras redirigir
   }
 };
+
+module.exports = productController;

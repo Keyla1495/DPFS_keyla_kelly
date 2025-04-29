@@ -8,13 +8,15 @@
         <%- include('../partials/header')%>
         <main>
             <section id="libros" class="container">
-                <% libros.forEach(libro => { %>
+                <% products.forEach(product => { %> <!-- Cambié "libros" por "products" -->
                     <div class="book">
-                        <img src="<%= libro.image %>" alt="<%= libro.name %>">
-                        <h3><%= libro.name %></h3>
-                        <p>Autor: <%= libro.autor || 'Desconocido' %></p>
-                        <p class="precio">$ <%= libro.precio || 0.00 %></p>
-                        <a href="libros/<%= libro.id %>">Ver más</a>
+                        <img src="/uploads/<%= product.image %>" alt="<%= product.name %>">
+                        <h3><%= product.nombre %></h3> <!-- Cambié "name" por "nombre" -->
+                        <p>Autor: <%= product.autor || 'Desconocido' %></p> <!-- Cambié "libro" por "product" -->
+                        <p>Categorías:</p>
+                        <p class="precio">$ <%= product.precio || '0.00' %></p>
+                        <a href="/products/<%= product.id %>">Ver más</a>
+
                     </div>
                 <% }); %>
             </section>

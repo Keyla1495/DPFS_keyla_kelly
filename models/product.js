@@ -1,17 +1,16 @@
-const { Sequelize, DataTypes } = require('sequelize');
-const sequelize = require('../database/config');
-
-const Autor = sequelize.define('Autor', {
-  name: {
-    type: DataTypes.STRING,
-    allowNull: false,
-  },
-  bio: {
-    type: DataTypes.TEXT,
-  },
-}, {
-  timestamps: true,
-  tableName: 'autors',  // Nombre de la tabla en la base de datos
-});
-
-module.exports = Autor;
+module.exports = (sequelize, DataTypes) => {
+    const product = sequelize.define('Product', {
+        name: DataTypes.STRING,
+        description: DataTypes.TEXT,
+        price: DataTypes.DECIMAL(10,2),
+        image: DataTypes.STRING,
+        category_id: DataTypes.INTEGER
+    }, {
+        tableName: 'products',
+        timestamps: true
+    });
+    product.associate = function(models) {
+        product.belongsTo(models.Category, { foreignKey: 'category_id' });
+    };
+    return product;
+};

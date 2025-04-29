@@ -1,0 +1,91 @@
+/* Estilo base */
+body {
+  font-family: 'Bebas Neue', sans-serif;
+  background-color: #f4f4f9;
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+
+h1 {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-top: 30px;
+  color: #3B3B58;  /* Color similar al de tu tienda online */
+}
+
+img {
+  display: block;
+  margin: 30px auto;
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border: 5px solid #3B3B58; /* Borde del círculo con un color sólido */
+}
+
+a {
+  display: block;
+  text-align: center;
+  margin-top: 20px;
+  font-size: 1.2rem;
+  color: #F3F1E5;
+  text-decoration: none;
+  background-color: #3B3B58;
+  padding: 10px 20px;
+  border-radius: 5px;
+  width: 200px;
+  margin: 20px auto;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+}
+
+a:hover {
+  background-color: #F3F1E5;
+  color: #3B3B58;
+}
+
+/* Estilo de contenedor de perfil */
+.profile-container {
+  width: 80%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+/* Ajuste de responsive */
+@media (max-width: 768px) {
+  h1 {
+      font-size: 2rem;
+  }
+
+  img {
+      width: 120px;
+      height: 120px;
+  }
+
+  a {
+      font-size: 1rem;
+      width: 180px;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+      font-size: 1.8rem;
+  }
+
+  img {
+      width: 100px;
+      height: 100px;
+  }
+
+  a {
+      font-size: 0.9rem;
+      width: 160px;
+  }
+}

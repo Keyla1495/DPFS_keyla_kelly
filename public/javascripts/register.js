@@ -1,33 +1,60 @@
 document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('registerForm');
+  const name = form.name;
+  const email = form.email;
+  const password = form.password;
+  const profileImage = form.profileImage;
+
+  const nameError = document.getElementById('nameError');
+  const emailError = document.getElementById('emailError');
+  const passwordError = document.getElementById('passwordError');
+  const imageError = document.getElementById('imageError');
+
   form.addEventListener('submit', (e) => {
-    e.preventDefault();
+    let isValid = true;
 
-    const nombre = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
-    const password = document.getElementById('password').value;
-    const imagen = document.getElementById('profileImage').files[0]; 
+    // Limpiar mensajes anteriores
+    nameError.textContent = '';
+    emailError.textContent = '';
+    passwordError.textContent = '';
+    imageError.textContent = '';
 
-    if (nombre.length < 2) {
-      alert('El nombre debe tener al menos 2 caracteres.');
-      return;
+    // Nombre
+    if (name.value.trim().length < 2) {
+      nameError.textContent = 'El nombre debe tener al menos 2 caracteres.';
+      isValid = false;
     }
 
-    if (!/\S+@\S+\.\S+/.test(email)) {
-      alert('Por favor ingresa un email válido.');
-      return;
+    // Email
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email.value)) {
+      emailError.textContent = 'El correo electrónico no es válido.';
+      isValid = false;
     }
 
-    if (password.length < 8) {
-      alert('La contraseña debe tener al menos 8 caracteres.');
-      return;
+    // Contraseña
+    if (password.value.length < 8) {
+      passwordError.textContent = 'Debe tener al menos 8 caracteres.';
+      isValid = false;
+    } else {
+      const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_])/;
+      if (!passwordRegex.test(password.value)) {
+        passwordError.textContent = 'Debe tener mayúsculas, minúsculas, número y un carácter especial.';
+        isValid = false;
+      }
     }
 
-    if (imagen && !['image/jpeg', 'image/png', 'image/gif'].includes(imagen.type)) {
-      alert('Solo se permiten imágenes JPG, PNG o GIF.');
-      return;
+    // Imagen
+    if (profileImage.value) {
+      const allowedExtensions = /(\.jpg|\.jpeg|\.png|\.gif)$/i;
+      if (!allowedExtensions.exec(profileImage.value)) {
+        imageError.textContent = 'Formato no válido (JPG, JPEG, PNG, GIF).';
+        isValid = false;
+      }
     }
 
-    form.submit();
+    if (!isValid) {
+      e.preventDefault();
+    }
   });
 });

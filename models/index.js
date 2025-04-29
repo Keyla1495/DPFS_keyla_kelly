@@ -1,41 +1,29 @@
-const { Sequelize } = require('sequelize');
-const sequelize = require('../database/config'); // Asegúrate de que la ruta a la base de datos sea correcta
+const { Sequelize, DataTypes } = require('sequelize');
 
-// Importación de los modelos
-const Category = require('./Category');
-const Autor = require('./Autor');
-const User = require('./user');
-const Product = require('./product');
-const Order = require('./Order');
+// Configuración de la base de datos
+const sequelize = new Sequelize('tienda', 'root', 'root', {
+    host: 'localhost',
+    dialect: 'mysql'
+});
 
+// Probar conexión
+sequelize.authenticate()
+    .then(() => console.log('✅ Conexión establecida con la base de datos.'))
+    .catch(error => console.error('❌ Error al conectar a la base de datos:', error));
 
-// Establecer relaciones entre los modelos
+// Modelos
+const db = {};
 
-// Relación entre Product y Category (Un producto pertenece a una categoría)
-Product.belongsTo(Category, { foreignKey: 'categoryId' });
-Category.hasMany(Product, { foreignKey: 'categoryId' });
+db.Sequelize = Sequelize;
+db.sequelize = sequelize;
 
-// Relación entre Product y Autor (Un producto tiene un autor)
-Product.belongsTo(Autor, { foreignKey: 'autorId' });
-Autor.hasMany(Product, { foreignKey: 'autorId' });
+// Importar modelos
+db.User = require('./users')(sequelize, DataTypes);
+db.Category = require('./category')(sequelize, DataTypes);
+db.Product = require('./product')(sequelize, DataTypes);
 
-// Relación entre Order y User (Una orden pertenece a un usuario)
-Order.belongsTo(User, { foreignKey: 'userId' });
-User.hasMany(Order, { foreignKey: 'userId' });
+// Relaciones (si tienes)
+db.Category.hasMany(db.Product, { foreignKey: 'category_id' });
+db.Product.belongsTo(db.Category, { foreignKey: 'category_id' });
 
-// Relación entre Order y Product (Una orden puede tener varios productos)
-Order.belongsToMany(Product, { through: 'OrderProducts', foreignKey: 'orderId' });
-Product.belongsToMany(Order, { through: 'OrderProducts', foreignKey: 'productId' });
-
-
-// Sincroniza los modelos con la base de datos
-(async () => {
-  try {
-    await sequelize.sync({ force: false }); // Usa `force: true` para eliminar tablas existentes (solo en desarrollo)
-    console.log('Tablas sincronizadas con éxito');
-  } catch (error) {
-    console.error('Error al sincronizar las tablas:', error);
-  }
-})();
-
-module.exports = { sequelize, Category, Autor, User, Product, Order };
+module.exports = db;

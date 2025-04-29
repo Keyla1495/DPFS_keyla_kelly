@@ -1,37 +1,56 @@
-const fs = require('fs');
-const path = require('path');
-const filePath = path.join(__dirname, '../data/products.json');
+// const fs = require('fs');
+// const path = require('path');
+// const filePath = path.join(__dirname, '../data/products.json');
 
-router.get('/', (req, res) => {
-    fs.readFile(path.join(__dirname, '../data/products.json'), 'utf8', (err, data) => {
-        if (err) {
-            console.error('Error al leer el archivo:', err);
-            return res.status(500).send('Error al leer el archivo de productos');
-        }
+// const readProducts = () => {
+//     try {
+//         const data = fs.readFileSync(filePath, 'utf8');
+//         return JSON.parse(data);
+//     } catch (err) {
+//         console.error('Error al leer o parsear el archivo:', err);
+//         return [];
+//     }
+// };
 
-        try {
-            const libros = JSON.parse(data);
-            console.log('Libros cargados:', libros);
-            res.render('libros', { libros });
-        } catch (parseError) {
-            console.error('Error al parsear JSON:', parseError);
-            res.status(500).send('Error al procesar datos');
-        }
-    });
-});
-app.get('/libros/:id', (req, res) => {
-    const libroId = req.params.id;
-    const libro = libros.find(l => l.id == libroId); 
+// const librosController = {
+//     index: (req, res) => {
+//         const libros = readProducts();
+//         res.render('products/libros', { products: libros, title: "Libros" });
+//     },
 
-    if (!libro) {
-        return res.status(404).send('Libro no encontrado');
-    }
+//     detail: (req, res) => {
+//         const libros = readProducts();
+//         const libroId = req.params.id;
+//         const libro = libros.find(l => l.id == libroId);
 
-    console.log('Mostrando detalles del libro:', libro); // Para depuración
+//         if (!libro) {
+//             return res.status(404).send('Libro no encontrado');
+//         }
 
-    res.render('productDetail', { product: libro });
-});
+//         res.render('products/productDetail', { product: libro, title: "Detalle del Producto" });
+//     },
 
+//     createForm: (req, res) => {
+//         res.render('products/createProduct', { title: 'Crear Producto' });
+//     },
 
+//     create: (req, res) => {
+//         const libros = readProducts();
+//         const newLibro = {
+//             id: libros.length > 0 ? libros[libros.length - 1].id + 1 : 1,
+//             name: req.body.name,
+//             description: req.body.description,
+//             precio: parseFloat(req.body.precio),
+//             categoria: req.body.category,
+//             autor: req.body.autor || 'Desconocido',
+//             image: req.file ? req.file.filename : 'default.jpg'
+//         };
 
-module.exports = librosController;
+//         libros.push(newLibro);
+//         fs.writeFileSync(filePath, JSON.striny(libros, null, 2));
+
+//         res.redirect('/libros');
+//     }
+// };
+
+// module.exports = librosController;
