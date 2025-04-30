@@ -19,11 +19,24 @@
 
 </head>
 <body>
+
+    <header>
     
-    <h1>Bienvenido, <%= user.name %></h1>
-    <img src="/images/users/<%= user.profileImage %>" alt="Imagen de perfil" />
-    <a href="/">Ir a Inicio</a> |
-    <a href="/users/logout">Cerrar sesión</a>
+        <h1>Bienvenido, <%= user.name %></h1>
+        
+    </header>
+
+    
+      <main>
+        <img src="/uploads/<%= user.profileImage %>" alt="Imagen de perfil" />
+        <a href="/" class="button-link">Ir a Inicio</a>
+        <a href="/users/logout" class="button-link">Cerrar sesión</a>
+
+      </main>
+    
+      <footer>
+        <p>&copy; 2025 Fantasy World</p>
+      </footer>
 
     
 </body>

@@ -3,10 +3,11 @@ body {
   padding: 0;
   background: #F3F1E5;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #3B3B58;
 }
 
 .dashboard-container {
-  padding: 20px;
+  padding: 30px 20px;
   max-width: 1200px;
   margin: 0 auto;
 }
@@ -15,7 +16,8 @@ h1 {
   text-align: center;
   color: #3B3B58;
   margin-bottom: 30px;
-  font-size: 2.5rem;
+  font-size: 2.8rem;
+  letter-spacing: 1px;
 }
 
 .navbar {
@@ -23,69 +25,74 @@ h1 {
   justify-content: space-between;
   align-items: center;
   background-color: #3B3B58;
-  padding: 15px 20px;
-  border-radius: 10px;
-  margin-bottom: 30px;
+  padding: 15px 25px;
+  border-radius: 12px;
+  margin-bottom: 40px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .navbar h2 {
   color: #F3F1E5;
   margin: 0;
-  font-size: 1.5rem;
+  font-size: 1.8rem;
+  font-weight: bold;
 }
 
 .nav-links a {
   color: #F3F1E5;
-  margin-left: 20px;
+  margin-left: 25px;
   text-decoration: none;
-  font-weight: bold;
-  transition: color 0.3s ease;
+  font-weight: 600;
+  padding: 8px 14px;
+  border-radius: 8px;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .nav-links a:hover {
-  color: #FFD369;
+  background-color: #FFD369;
+  color: #3B3B58;
 }
 
-
-/* Paneles estilo Fantasy World */
 .panels {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 20px;
-  margin-bottom: 40px;
+  gap: 25px;
+  margin-bottom: 50px;
 }
 
 .panel {
-  background: white;
-  border-radius: 15px;
-  padding: 20px;
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 25px;
   border: 2px solid #3B3B58;
-  box-shadow: 0 4px 12px rgba(59, 59, 88, 0.2);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 6px 16px rgba(59, 59, 88, 0.15);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .panel:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(59, 59, 88, 0.3);
+  transform: translateY(-6px);
+  box-shadow: 0 12px 24px rgba(59, 59, 88, 0.25);
 }
 
 .panel h2 {
   margin-top: 0;
   color: #3B3B58;
-  border-bottom: 1px solid #E0DED0;
-  padding-bottom: 10px;
-  margin-bottom: 15px;
-  font-size: 1.3rem;
+  border-bottom: 2px solid #E0DED0;
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+  font-size: 1.4rem;
 }
 
 .panel ul {
   list-style: none;
   padding: 0;
+  margin: 0;
 }
 
 .panel ul li {
-  padding: 8px 0;
+  padding: 10px 0;
   border-bottom: 1px solid #E0DED0;
+  font-size: 0.95rem;
 }
 
 .panel a {
@@ -98,8 +105,8 @@ h1 {
   color: #7A7AA3;
 }
 
-/* Lista de productos personalizada */
 .product-list ul li {
   display: flex;
   justify-content: space-between;
+  font-size: 0.95rem;
 }

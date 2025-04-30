@@ -10,8 +10,8 @@
   <header>
     <h1>Bienvenido, <%= user.name %> (Admin)</h1>
     <nav>
-      <a href="/">Ir a Inicio</a> |
-      <a href="/users/logout">Cerrar sesión</a>
+      <a href="/" class="button-link">Ir a Inicio</a>
+      <a href="/users/logout" class="button-link">Cerrar sesión</a>
     </nav>
   </header>
 
@@ -19,10 +19,19 @@
     <section>
       <h2>Panel de Control</h2>
       <ul>
-        <li><a href="/admin/users">Gestionar Usuarios</a></li>
-        <li><a href="/admin/products">Gestionar Productos</a></li>
-        <li><a href="/admin/orders">Gestionar Pedidos</a></li>
-        <a href="http://localhost:5173/">Dashboard</a>
+        <li><a href="/api/users">Gestionar Usuarios</a></li>
+        <li><a href="/api/products">Gestionar Productos</a></li>
+        <li>
+          
+          <ul>
+            <li><a href="/libros">Ver Productos</a></li>
+            <li><a href="/products/create">Crear Producto</a></li>
+            <li><a href="/products/edit/10">Editar Producto</a></li> <!-- configurar s futuro ediccion de producto -->
+            <li><a href="/products/delete">Eliminar Producto</a></li>
+          </ul>
+        </li>
+        <li><a href="">Gestionar Pedidos</a></li>
+        <li><a href="http://localhost:5173/">Dashboard</a></li>
       </ul>
     </section>
   </main>

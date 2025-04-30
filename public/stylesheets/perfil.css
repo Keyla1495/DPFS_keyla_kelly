@@ -1,91 +1,136 @@
 /* Estilo base */
 body {
   font-family: 'Bebas Neue', sans-serif;
-  background-color: #f4f4f9;
+  background-color: #F3F1E5;
   margin: 0;
   padding: 0;
-  color: #333;
+  color: #3B3B58;
 }
 
-h1 {
-  font-size: 2.5rem;
+/* Encabezado */
+header {
+  background-color: #3B3B58;
+  color: #F3F1E5;
+  padding: 20px;
   text-align: center;
-  margin-top: 30px;
-  color: #3B3B58;  /* Color similar al de tu tienda online */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2.2rem;
+}
+
+nav a {
+  display: inline-block;
+  color: #F3F1E5;
+  text-decoration: none;
+  margin: 10px 15px;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: #FFD369;
+}
+
+/* Contenedor principal */
+main {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 6px 12px rgba(59, 59, 88, 0.15);
+  text-align: center;
+}
+
+main h2 {
+  font-size: 1.8rem;
+  color: #3B3B58;
+  margin-bottom: 20px;
 }
 
 img {
   display: block;
-  margin: 30px auto;
+  margin: 0 auto 20px auto;
   border-radius: 50%;
   width: 150px;
   height: 150px;
   object-fit: cover;
-  border: 5px solid #3B3B58; /* Borde del círculo con un color sólido */
+  border: 5px solid #3B3B58;
 }
 
-a {
-  display: block;
-  text-align: center;
-  margin-top: 20px;
-  font-size: 1.2rem;
-  color: #F3F1E5;
-  text-decoration: none;
+/* Botones */
+a.button-link {
+  display: inline-block;
   background-color: #3B3B58;
-  padding: 10px 20px;
-  border-radius: 5px;
-  width: 200px;
-  margin: 20px auto;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: background-color 0.3s ease;
+  color: #F3F1E5;
+  padding: 10px 25px;
+  margin: 10px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: background 0.3s ease, color 0.3s ease;
+  font-weight: bold;
 }
 
-a:hover {
-  background-color: #F3F1E5;
+a.button-link:hover {
+  background-color: #FFD369;
   color: #3B3B58;
 }
 
-/* Estilo de contenedor de perfil */
-.profile-container {
-  width: 80%;
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 20px;
-  background-color: #ffffff;
-  border-radius: 10px;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+
+/***************** FOOTER *****************/
+footer {
+  background-color: #3B3B58;
+  color: #FFFFFF;
   text-align: center;
+  padding: 20px;
+  margin-top: 40px;
 }
 
-/* Ajuste de responsive */
+/* Panel de control */
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+}
+
+ul li {
+  margin: 10px 0;
+}
+
+ul li a {
+  text-decoration: none;
+  color: #3B3B58;
+  font-weight: bold;
+  border-bottom: 1px solid #E0DED0;
+  padding-bottom: 5px;
+  transition: color 0.3s;
+}
+
+ul li a:hover {
+  color: #7A7AA3;
+}
+
+
+
+
+/* Responsive */
 @media (max-width: 768px) {
-  h1 {
-      font-size: 2rem;
+  header h1 {
+    font-size: 1.8rem;
   }
 
   img {
-      width: 120px;
-      height: 120px;
+    width: 120px;
+    height: 120px;
   }
 
-  a {
-      font-size: 1rem;
-      width: 180px;
-  }
-}
-
-@media (max-width: 480px) {
-  h1 {
-      font-size: 1.8rem;
-  }
-
-  img {
-      width: 100px;
-      height: 100px;
-  }
-
-  a {
-      font-size: 0.9rem;
-      width: 160px;
+  a.button-link {
+    padding: 8px 18px;
+    font-size: 0.9rem;
   }
 }
